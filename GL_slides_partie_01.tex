@@ -1,0 +1,991 @@
+\documentclass[hyperref={pdfpagelabels=false}]{beamer}
+\usepackage{lmodern}
+\usepackage{wrapfig}
+\usetheme{CambridgeUS}
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+
+\title{Génie logiciel}  
+\begin{document}
+%\logo{\includegraphics[scale=0.14]{shsf.png}}
+\begin{frame}
+\titlepage
+\end{frame} 
+
+
+
+\begin{frame}
+\frametitle{Sommmaire}
+\tableofcontents
+\end{frame} 
+
+%\section{Organisation du cours} 
+\section{Organisation du cours} 
+\begin{frame}
+\frametitle{Organisation} 
+\begin{itemize}
+\item Intervenant :  Jun Chen
+\item Organisation
+\begin{itemize}
+\item 7 séquences de cours, 2 x 1.5h de TD 
+\item Contrôle continu
+\end{itemize}
+\item Notation
+\begin{itemize}
+\item  Un examen écrit  (2/3)
+\item  Contrôle continu (1/3)
+\begin{itemize}
+\item Présence
+\item Participation en cours/TD
+\end{itemize}
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Organisation} 
+\begin{tabular}{|c|c|c|}
+\hline
+\textbf{Date} & \textbf{Séances} & \textbf{Contenu} \\
+\hline
+Lundi 30/11/15 & C & C1 : Introduction au génie logiciel \\
+\hline
+Mardi 01/12/15 & C & C2 : Modélisation partie I \\
+\hline
+Jeudi 03/12/15 & C & C3 : Modélisation partie II \\
+\hline
+Vendredi 04/12/15 & C + TD & \tabincell{c}{C4 :  Développement et recette   \\ TD1: Modélisation} \\
+\hline
+Lundi 07/12/15 & C &  C5 :  Développement et recette \\
+\hline
+Mardi 08/12/15 & C &  C6 :  Développement et recette \\
+\hline
+Mercredi 09/12/15 & C + TD & \tabincell{c}{C7 :  Gestion de projet \\ TD2: Développement et recette} \\
+\hline
+Jeudi 10/12/15 & E &  Examen \\
+\hline
+\end{tabular}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Objectif de l'enseignement}
+\begin{itemize}
+\item Méthodologies permettant de mener à bien un projet informatique complexe et en équipe 
+\item Découpage de problèmes difficiles en plusieurs petits problèmes plus faciles à traiter
+\item La vie d'un logiciel ne se limite pas à la programmation
+\end{itemize} 
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Objectif de l'enseignement}
+\begin{itemize}
+\item Vous faire passer de ... {\color{gray}  à ...} 
+\begin{itemize}
+\item Programmation individuelle sur de petits problèmes
+\item Algorithme, langage de programmation, structures de données
+\item Un peu de méthodologie : analyse descendante
+\end{itemize} 
+\end{itemize} 
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Objectif de l'enseignement}
+\begin{itemize}
+\item {\color{gray} Vous faire passer de ...} à ...
+\begin{itemize}
+\item Travail en équipe sur des projets longs et complexes
+\item Spécifications de départ peu précises
+\item Dialogue avec le client/utilisateur : parler métier et non informatique
+\item Organisation, planification, gestion du risque
+\end{itemize} 
+\end{itemize} 
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Bibliographie}
+\begin{itemize}
+
+\item Pas facile de trouver un livre qui recouvre parfaitement ce cours
+
+\end{itemize} 
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Le programme réel}
+\begin{itemize}
+\item Introduction au génie logiciel
+\item Eléments pour les architectures logicielles
+\item I'Outils et environnements de développement
+\item Le langage UML et son utilisation 
+\item Introduction à la qualité logicielle
+\end{itemize} 
+\end{frame}
+
+
+%\section{Introduction au génie logiciel} 
+\section{Introduction au génie logiciel} 
+
+\begin{frame}
+\frametitle{Qu'est-ce que le génie logiciel?} 
+\begin{block}{Définition (Génie logiciel)}
+Le génie logiciel est un domaine des sciences de l'ingénieur dont l'objet d'étude est la conception, la fabrication, et la maintenance des systèmes informatiques complexes.
+\end{block}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Qu'est-ce que le génie logiciel?} 
+ \begin{itemize}
+\item Génie logiciel : principes, méthodes, techniques et outils
+\item Domaine vaste qui couvre de nombreuses et diverses activités touchant aux technologies du logiciel, à la gestion des ressources et à la mesure de la qualité
+\item Essayer de rationaliser, de maîtriser et de rendre efficace le processus de production du logiciel
+\end{itemize} 
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Qu'est-ce que le génie logiciel?} 
+Donc le génie logiciel essaie de fournir des garanties sur les temps, les coûts et la qualité du produit. Le génie logiciel ne s'intéresse donc pas uniquement aux aspects techniques \textbf{d'analyse et de conception} mais à tout le cycle de vie : analyse des besoins, conception, maintenance, tests, certification, normalisation, déploiement mais aussi aux \textbf{aspects organisationnels} : constitutions des équipes, gestion du processus, prévision des coûts et des délais. C'est un domaine toujours en évolution. On a fait beaucoup de progrès mais les choses ne sont pas encore satisfaisantes sur bon nombre de points.
+\end{frame}
+
+
+%\section{La nature du logiciel}
+\section{La nature du logiciel}
+\begin{frame}
+\frametitle{Qu'est-ce qu'un logiciel ?} 
+\begin{block}{Définition (Logiciel)}
+Un logiciel est un ensemble d'entités nécessaires au fonctionnement d'un processus de traitement automatique de l'information.
+\end{block}
+\begin{itemize}
+\item Parmi ces entités, on trouve par exemple :
+\begin{itemize}
+\item des programmes (en format code source ou exécutables) ; des documentations d'utilisation ;
+\item des informations de configuration.
+\end{itemize} 
+\end{itemize} 
+\end{frame}
+
+\begin{frame}
+\frametitle{Qu'est-ce qu'un logiciel ?} 
+Un logiciel est en général un sous-système d'un système englobant.
+\begin{itemize}
+\item  Il peut interagir avec des clients, qui peuvent être :
+\begin{itemize}
+\item des opérateurs humains (utilisateurs, administrateurs, etc. )
+\item d'autres logiciels
+\item des contrôleurs matériels.
+\end{itemize} 
+\item Il réalise une spécification : son comportement vérifie un ensemble de critères qui régissent ses interactions avec son environnement.
+\end{itemize} 
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Qu'est-ce qu'un logiciel ?} 
+Le génie logiciel vise à garantir que :
+\begin{itemize}
+\item la spécification répond aux besoins réels de ses clients
+\item le logiciel respecte sa spécification
+\item les coûts alloués pour sa réalisation sont respectés
+\item Il réalise une spécification : son comportement vérifie un ensemble de critères qui régissent ses interactions avec son environnement.
+\end{itemize} 
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Qu'est-ce qu'un logiciel ?} 
+Le logiciel est un produit très spécifique, ce qui a quelques conséquences sur sa production.
+La fiabilité : Est-ce que je peux l'utiliser sans risque ou avec un taux ou de risques connus?
+La fiabilité est fondamentale dans les cas de logiciel dit critique. C'est l'aspect le plus critiquable de la plupart des logiciels, on ne tolérerait pas de telles erreurs dans d'autres secteurs 
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Contraintes d'utilisation}
+\begin{itemize}
+\item Le logiciel est autorisé si aucune augmentation du taux de mortalité "normale" n'est constatée
+\item Exemples : taux de défaillance acceptable : 
+\begin{itemize}
+\item $10^{-7}$ pannes/heures (avion)
+\item  $10^{-9}$ pannes/heures (train)
+\end{itemize} 
+\item Ceci implique des probabilités de défaillance plus faible pour la partie logicielle :
+\begin{itemize}
+\item $10^{-9}$ pannes/heures (avion)
+\item $10^{-11}$ pannes/heures (train)
+\end{itemize} 
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Exemples récents de problèmes}
+\begin{itemize}
+ \item Ariane 5 : problème de débordement de calculs
+\item Mars Pathfinder Mission : problème de reset dû à une tâche
+trop longue
+\item  Robot Spirit : débordement des fichiers et redémarrage
+\item  Erreur du Pentium (calculs flottants) : 470 106 \$
+\item Anomalies "spatial" en 1999 : 8 de lanceurs, 16 de satellites, 4 sondes, télescopes, ...
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{La crise du logiciel}
+\begin{itemize}
+ \item  Crise du logiciel : le concept apparait en 1969
+ \item  Dépassement moyen de budget : 70\%
+ \item  Dépassement moyen de délai : 50\%
+ \item  La maintenance est aussi un gros problème
+ \item  Une grande partie du coût du logiciel provient de la maintenance (40 à 70 \%)
+ \item  Coût logiciel >>> coût du matériel
+ \item  Rapport logiciel/matériel : 50-50 en 1965, 70-30 en 75, 80-20 en 1985 ...
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{La crise du logiciel}
+On a constaté dès 1969 une crise du logiciel : la difficulté à maîtriser le développement des systèmes complexes et de prévoir les coûts et les pannes. La maintenance est aussi un gros problème incontournable. Le coût du logiciel est bien supérieur à celui du matériel dans le domaine industriel. Attention il s'agit bien du coût de production du logiciel, le prix public peut lui varier fortement en fonction du nombre de licences mais aussi pour d'autres raisons commerciales.
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{La crise du logiciel}
+Fabriquer 1 ou 100 exemplaires d'un logiciel ça coûte la même chose (ou à peu près).
+Commercialiser 1 ou 100 licences d'un logiciel c'est très différent. Si les chiffres du rapport logiciel/matériel sont discutables la tendance elle ne l'est pas, le logiciel coûte de plus en plus cher. On considère qu'une grande partie de ces coûts provient de la maintenance (40 à 70 \%).
+La complexité des tâches demandées à l'informatique s'est accrue fortement.
+La simple taille des programmes est un élément qui donne une idée de sa complexité : 1 million de lignes pour une commande d'avion et 10 millions pour celle d'une station orbitale. 
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Etat du génie logiciel}
+\begin{itemize}
+ \item  Débute dans les années 60, discipline jeune et en pleine évolution
+ \item  Beaucoup de techniques trop informelles
+ \item Quelques tendances plus rationnelles mais encore très
+insuffisantes et peu répandues
+ \item Peu de consensus sur l'ensemble des technologies
+ \item Une "anomalie" par rapport aux autres sciences de l'ingénieur
+
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Etat du génie logiciel}
+Quelques idées simples mais utiles :
+Programmation = 1 acteur
+Génie logiciel = 1 équipe et pas uniquement de la programmation Facteur de taille 100, 1000, 106 par rapport à un programme.
+Temps de développement qq mois*hommes contre des années * hommes. Là encore on peut prendre lêxemple du projet OSE3 : qq mois * hommes. On peut aussi noter l'absence de législation de type droit du logiciel !
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Evolution de l'informatique}
+
+\begin{itemize}
+\item Promouvoir une véritable science de l'ingénieur du logiciel
+\item Facteurs positifs
+\item Economie, recherche, intérêts industriels, systèmes critiques, améliorations constantes des formations
+\item Facteurs négatifs
+\item Monopoles, approche trop commerciale et à court terme,
+manque de formation, échecs de projet
+\item Exemples récents : programmation par aspects, composants et architectures logicielles, lignes de produits logiciels, utilisation de preuves, ...
+\item Les preuves mathématiques sont en cours de révolution grâce aux nouveaux outils de preuves
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Evolution de l'informatique}
+Données  (Standish Group 1995) 
+\begin{itemize}
+\item 31 \% des projets non achevés ou abandonnés à la livraison 
+\item 53 \% des projets dépassent les ressources allouées
+\item 16 \% des projets se déroulent comme prévus
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Rôle de l'ingénieur Génie logiciel  1/2}
+\begin{itemize}
+
+\item  Communication avec le client ou l'utilisateur dans les termes de l'application
+\item  Lecture (voire aide à l'écriture) du cahier des charges
+\item  Traduction de cahier des charges en spécifications
+\item  Maîtrise des niveaux d'abstraction
+\item  Maîtrise des phases et des différentes approches de développement
+
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Rôle de l'ingénieur Génie logiciel 2/2}
+\begin{itemize}
+
+\item Maîtrise des techniques de programmation
+\item  Capacité à élaborer des modèles, y compris des modèles
+formels
+\item  Connaissance et pratique des ateliers de génie logiciel
+\item  Capacité d'organisation, de gestion et de communication
+
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Responsabilités de l'ingénieur génie logiciel}
+\begin{itemize}
+\item Pas uniquement une activité technique informatique \item Responsabilités éthiques, sociales et professionnelles
+\item Confidentialité \item Compétence
+\item Droit de propriété individuel
+\item Mauvaise utilisation de l'ordinateur
+\item Pas de droits clairs ou bien formalisés sur ces problèmes \item Importance grandissante des problèmes de confiance
+\item Par exemple avec le cloud?
+\end{itemize}
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Comment fabriquer un logiciel de qualité?}
+En plus du respect (essentiel) de sa spécification, la qualité d'un logiciel dépend des 4 critères suivants :
+\begin{itemize}
+\item {\color{blue} Maintenabilité} - Peut-on faire évoluer le logiciel ? 
+\item {\color{blue} Robustesse} - Le logiciel est-il sujet à des dysfonctionnements 
+\item {\color{blue} Efficacité} - Le logiciel fait-il bon usage de ses ressources ?
+\item {\color{blue} Utilisabilité} - Est-il facile à utiliser ?
+\end{itemize} 
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Qualités du logiciel}
+\begin{itemize}
+\item Il faut s'intéresser aux qualités du produit et aux qualités du processus de production
+\item Qualités externes (pour l'utilisateur)
+\item  Qualités internes (pour le développeur)
+\item  Ces éléments ne sont pas indépendants
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Qualités externes}
+\begin{itemize}
+
+\item Fonctionnalité :
+\item Correction : satisfait à ses spécifications
+\item Fiabilité : probabilité dêxécution sans défaillance
+\item Robustesse : comportement raisonnable dans des conditions
+anormales
+\item Performance : gestion efficace des ressources (temps, espace, matériels), mesures et statistiques sont possibles
+\item Ergonomie : facilité d'utilisation et d'apprentissage, interface utilisateur conviviale (voir le cours d'IHM)
+
+\end{itemize}
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Qualités internes}
+\begin{itemize}
+\item  Maintenabilité : le plus coûteux
+\item  Vérifiabilité : liée aux possibilités de vérification et de
+mesurabilité du produit
+\item  Réutilisation : reprise de tout ou partie pour la construction d'autres systèmes
+\item  Portabilité : indépendance vis à vis de l'environnement
+\item  Interopérabilité : capacité à interagir avec d'autres systèmes
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Illustrations}
+\begin{itemize}
+
+\item Le changement de numération téléphonique de 8 à 10 chiffres à entrainer une évolution des logiciels gérant les centraux téléphoniques
+\item Un simulateur de vol doit respecter les contraintes du système réel (inertie par exemple)
+\item Un module de compte bancaire avec ses variations peut-être réutilisé pour la conception de plusieurs systèmes
+\item Utiliser le même logiciel sous Windows ou Linux ? (oui avec les applications Java)
+\item Système bancaire distribué qui doit opérer des transactions entre des établissements ni du même groupe ni du même pays, web services
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Illustrations}
+Une approche classique pour estimer ces qualités est la mesure du logiciel (métrologie du logiciel) pour laquelle beaucoup de travaux et dôutils existent, mais ils ne couvrent pas tout. La métrologie est un aspect du génie logiciel, que nous aborderons plus loin. L'outil Objecteering par exemple dispose d'un module de mesure pour les diagrammes UML.
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Qualités du processus}
+\begin{itemize}
+\item Productivité : efficacité du processus
+\item Prédictivité temporelle : capacité à estimer les délais
+\item Visibilité : le processus et l'état du développement doivent être faciles à comprendre
+\item Supporté : par un ou des outils
+\item Maîtrisé: par tous les acteurs du développement
+
+\end{itemize}
+\end{frame}
+
+
+
+\section{Cycle de développement}
+\begin{frame}
+\frametitle{Cycle de développement}
+ \begin{itemize}
+\item Un bon développement doit reposer sur une méthode et un cycle de développement
+\item On identifie différentes phases dans un développement : analyse, conception, ...
+\item Elles produisent en général des documents qui vont servir à une autre phase
+\item Le cycle décrit les enchaînements prévus des différentes phases
+\item Il existe plusieurs cycles de vie du logiciel
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Le développement dans sa globalité}
+ \begin{itemize}
+\item Autour de l'aspect purement logiciel on trouve :
+ \begin{itemize}
+ \item Gestion administrative
+\item Documentation
+\item Gestion des versions et configurations
+ \end{itemize}
+\item Ces activités sont menées en parallèle avec le développement du logiciel proprement dit
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Vue globale des tâches du génie logiciel}
+
+ \includegraphics[width=1\textwidth]{GC_vu_globale}
+
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Les autres activités}
+ \begin{itemize}
+\item Planification du projet : décomposition en sous-tâches
+\item Suivi du projet : état d'avancement et contrôle
+\item Gestion de la qualité : mesure de la qualité, recommandations
+\item La documentation est un élément essentiel du logiciel : de gestion du projet, technique ou de référence, d'utilisation, d'installation et d'exploitation
+\item Configuration : Maîtriser l'évolution du logiciel et de sa documentation
+\item Vérification et validation 
+\item Formation
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Normes}
+ \begin{itemize}
+\item Classification des normes du génie logiciel ANSI/IEEE 1002
+\item Ingénierie du produit : analyse des besoins, conception, codage, intégration, débogage, support du produit, maintenance.
+\item Vérification et validation : revues et audits, analyse du produit, test
+\item Gestion technique : gestion du processus, gestion du produit, gestion des ressources
+
+\end{itemize}
+\end{frame}
+
+
+%\section{Les étapes du développement logiciel}
+\section{Les étapes du développement logiciel}
+\begin{frame}
+\frametitle{Cahier des charges}
+ \begin{itemize}
+
+\item Contient le contexte, les besoins et leur évolution
+\item Spécifications fonctionnelles
+\item Document de référence du produit
+\item Notion de client-fournisseur
+\item Informel!
+\item La validation n'est donc jamais une preuve formelle de l'adéquation
+
+\end{itemize}
+\end{frame}
+
+ 
+\begin{frame}
+\frametitle{Un modèle}
+ \begin{itemize}
+\item Positionnement et objectifs : dans quel contexte le cahier des charges est-il établi et quels sont ces objectifs
+\item Spécifications applicatives ou fonctionnelles : descriptions des données, traitements, présentations, interfaces
+\item Spécifications techniques : informations plus spécifiques sur le contexte
+\item Contraintes de réalisation :
+ \begin{itemize}
+\item Spécifications administratives : budget, délais, propriété, clauses
+légales
+\item Spécifications d'évaluation : les éléments qui permettront de valider l'offre faite par le futur contractant
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Analyse}
+ \begin{itemize}
+ 
+\item  Terme général désignant la compréhension et la formulation d'un problème
+\item  Une analyse part du cahier des charges et produit une spécification
+\item  L'analyse des besoins produit des spécifications fonctionnelles
+\item  Analyse formelle et spécification formelle
+\item  Langage de spécification semi-formel et formel
+\item  Attention une spécification décrit seulement le problème
+
+\end{itemize}
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Analyse}
+L'analyse des besoins désigne l'activité de "spécification" des besoins du client. Il s'agit de préciser, de détailler et d'éclaircir le contenu fonctionnel et technique du cahier des charges. Du fait des déficiences d'une analyse informelle de plus en plus de méthodes recourent à des langages semi-formels voire formels. Il existe par exemple des procédures visant à rationaliser l'analyse des besoins et utilisant la vérification de modèles. UML peut être considéré comme un langage semi-formel, sa sémantique laisse sérieusement à désirer d'ailleurs. Le langage B, PVS, COQ, ou le Larch Shared Language sont des exemples de langages de spécifications formelles.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Notion de modèle}
+ \begin{itemize}
+
+\item Toutes les sciences utilisent des modèles divers pour simuler, comprendre, aider à la conception et à la certification des systèmes
+\item En général ne va décrire qu'une partie ou une vue du système
+\item Donc on cherche à abstraite et simplifier
+\item La modélisation est importante en génie logiciel
+\item Un des langages les plus utilisés pour cela est UML
+\item Devrait être le travail de la Maîtrise d'ouvrage
+\item Mais en réalité souvent réalisée par la Maîtrise d'oeuvre
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Spécification formelle}
+ \begin{itemize}
+\item Description d'un problème dans un langage ayant une sémantique formelle (une approximation parlante est mathématique )
+\item Permet des vérifications, traduction automatique en code, tests automatiques, documentation, rigueur, ...
+\item Important pour le développement de logiciel dit critique
+\item Approche importante : transformation formelle
+\item Mais ce n'est pas si simple ...
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Spécification formelle}
+La spécification formelle a plusieurs avantages et autorise une approche transformationnelle très intéressante.
+Le recours au spécifications formelles est exigé dans certains développement ou par certains clients.
+\end{frame}
+
+
+\begin{frame}
+\frametitle{La conception}
+ \begin{itemize}
+\item Activité destinée à produire une solution à un problème
+\item Elle part du résultat de l'analyse
+\item Son résultat est un ensemble de documents décrivant : architecture, solutions fonctionnelles (algorithmes), considérations de performances, format des données d'entrée et de sortie ...
+\item Conception détaillée
+
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Codage}
+ \begin{itemize}
+
+\item Implémentation du résultat de la conception dans un langage exécutable (codage, implémentation, programmation ...)
+\item Il s'agit du codage dans un langage de programmation, i.e., de la traduction de la conception dans un langage
+\item Activité bien connue des programmeurs
+\end{itemize}
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Intégration}
+ \begin{itemize}
+\item Le logiciel doit interagir avec d'autres éléments
+\item Système intégré = composé et assemblé
+\item Il peut y avoir intégration matériel et logiciel (co-conception)
+\item Eventuellement ce matériel peut être non informatique (robotique, capteurs, etc)
+\item L'aspect architecture (matérielle, logicielle) du système est apparente ici
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Intégration}
+Réalise les liens entre les différents morceaux conçus et ceux avec lesquels le système doit interagir. Phases consistant à assembler des modules conçus et testés individuellement. Il s'agit de produire un système intégré composé de ces différentes parties. Matériels informatiques : processeurs +/- spécialisés, mémoire, disques, capteurs mais aussi systèmes commandés numériquement : machines outils, robots, systèmes logiciels embarqués etc.
+Concept très important dans les approches modernes architecture logicielle à base de composant.
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Débogage}
+ \begin{itemize}
+\item Détection et correction des erreurs
+\item Activité classique en programmation
+\item Activité coûteuse et assez "artistique"
+\item Se base sur des traces d'exécution ou des tests
+\item Les erreurs sont souvent détectées suite à des tests effectués par le programmeur mais aussi par le client avant ou après la livraison
+\item Les séries de tests peuvent être parfois automatisées
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Débogage}
+ \begin{itemize}
+\item Insuffisance fondamentale : trouve des erreurs mais ne prouve pas qu'il n'y en a plus
+\item Problème crucial : plus l'erreur est trouvée tardivement plus elle coûte chère
+\item Problème avec les systèmes infinis ou très gros en particulier, tests non exhaustifs
+\item Toutefois des outils et des méthodes indispensables en pratique
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Maintenance}
+ \begin{itemize}
+ \item Activités destinés à améliorer, adapter ou corriger un logiciel \item Perfectionnement : amélioration des performances, pas de
+changement fonctionnel
+\item Adaptation : à l'évolution de l'environnement
+\item Correction : Débogage alors que le produit est livré et en utilisation
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Inspection ou revue de code}
+ \begin{itemize}
+\item Pas une phase du cycle mais une activité importante pour la qualité du logiciel
+\item Peut prendre des formes très diverses
+\item Peut s'appliquer à tous les produits du cycle de développement
+\item Analyse manuelle avec une ou un groupe de personnes
+\item Un guide des règles de développement en usage dans l'entreprise (standard, norme, etc)
+\item Souvent avec interaction des auteurs
+\item Groupe hétérogène avec programmeur expérimenté
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Inspection ou revue de code}
+ \begin{itemize}
+\item Lisent les codes sources et signalent des erreurs ou les doutes
+\item Peuvent tester manuellement des cas
+\item Prouvé comme étant une activité essentielle pour la qualité
+\item Des estimations donnent de 50 à 90 \% d'élimination de problèmes
+\item Contre 30\% avec des tests
+\item wikipedia
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{environnement de Génie logiciel}
+ \begin{itemize}
+\item Ensemble d'outils logiciels et matériels assistant le
+développement
+\item Il a pour but d'aider à réaliser, contrôler et suivre un logiciel tout au long de son cycle de vie
+\item Il doit faciliter la coordination des différentes tâches, de mesurer et d'améliorer la qualité du produit
+\item Eclipse, IntelliJ, NetBeans, etc
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Délivrables}
+ \begin{itemize}
+
+\item Exemples :
+\begin{itemize}
+\item  fichiers binaires (logiciel lui-même) 
+\item  code source (éventuellement)
+\item  manuel d'installation
+\item  manuel d'utilisation
+\item  résultats des tests
+\item  cahier des charges...
+\end{itemize}
+\end{itemize}
+ 
+\begin{itemize}
+\item Objectifs :
+\begin{itemize}
+\item  documenter chaque étape
+\item  capitaliser les connaissances sur le projet 
+\item  obtenir des retours du client
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+%\section{Les méthodes de développement}
+\section{Les méthodes de développement}
+\begin{frame}
+\frametitle{Principales méthodologies}
+ \begin{itemize}
+\item Modèle de la cascade 
+\item Cycle en V 
+\item Cycle en spirale
+\item Autres
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Modèle de la cascade}
+ \includegraphics[width=1\textwidth]{cycle_cascade}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Modèle de la cascade}
+\begin{itemize}
+\item Avantages :
+\begin{itemize}
+\item  aisé à comprendre et à mettre en oeuvre
+\item  forte structuration : définition puis réalisation 
+\item  la documentation guide les étapes
+\end{itemize}
+\end{itemize}
+
+\begin{itemize}
+\item  Inconvénients :
+\begin{itemize}
+\item  modèle idéalisé, ne tient pas compte de la nature itérative d'un projet 
+\item  logiciel délivré seulement à la fin du projet
+\item  coût de gestion en amont important
+\end{itemize}
+\end{itemize}
+Adapté pour des projets de petite taille, et dont le domaine est bien mâ?trisé
+\end{frame}
+
+
+
+
+
+\begin{frame}
+\frametitle{Cycle en V}
+ \includegraphics[width=1\textwidth]{cycle_V}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Cycle en V}
+\begin{itemize}
+\item Avantages :
+\begin{itemize}
+\item plus réactif que le modèle en cascade
+\item force l'identification de blocs fonctionnels 
+\item forte structuration des étapes de test
+\end{itemize}
+\end{itemize}
+
+\begin{itemize}
+\item  Inconvénients :
+\begin{itemize}
+\item hypothèse de stricte séparation entre implantation et spécification 
+\item logiciel délivré seulement à la fin du projet
+\end{itemize}
+\end{itemize}
+Adapté pour des projets dont le domaine est bien mâ?trisé
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Le prototypage}
+\begin{itemize}
+\item Prototype : version d'essai du logiciel
+  \begin{itemize}
+   \item Pour tester les différents concepts et exigences
+   \item Pour montrer aux clients les fonctions que l'on veut mettre en ½uvre
+  \end{itemize}
+
+\item Lorsque le client a donnné son accord, le développement suit souvent un cycle de vie linéaire
+\item Avantages : Les efforts consacrés au développement d'un prototype sont le plus souvent compensés par ceux gagnés à ne pas développer de fonctions inutiles
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Cycle en spirale}
+\begin{wrapfigure}{r}{0.48\textwidth}
+\includegraphics[width=.5\textwidth]{cycle_sprirale}
+\end{wrapfigure}
+\text{}
+\begin{itemize}
+\item Un modèle mixte
+\item  A chaque cycle, recommencer :
+\begin{enumerate}
+\item  Consultation du client
+\item Analyse des risques
+\item  Conception
+\item  Implémentation
+\item  Tests
+\item  Planification du prochain cycle
+\end{enumerate}
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Cycle en spirale}
+\begin{itemize}
+\item Avantages :
+\begin{itemize}
+\item combine les avantages des modèles en cascade/V 
+\item  tient compte de la nature itérative d'un projet
+\item  bonne visibilité au cours du cycle de vie
+\item meilleure mâ?trise des risques,
+\end{itemize}
+\end{itemize}
+
+\begin{itemize}
+\item  Inconvénients :
+\begin{itemize}
+\item difficile à comprendre sans être expert technique
+\item nécessite capacité à bien analyser les risques
+\item nécessite gestionnaires compétents
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Quelques méthodologies}
+ \begin{itemize}
+\item Nombreuses méthodologies :
+ \begin{itemize}
+\item  RAD
+\item eXtreme Programming 
+\item  Scrum
+\item  RUP
+\item  2TUP
+\item  Merise
+\item  SADT
+\item  HERMES...
+\end{itemize}
+\end{itemize}
+
+\begin{itemize}
+\item Trois grandes familles :
+\begin{itemize}
+\item ascendante 
+\item  descendante 
+\item  agile
+\end{itemize}
+\end{itemize}
+
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Méthodes agiles}
+ \begin{itemize}
+
+\item Approche pragmatique, très à la mode ...
+\item Priorité aux besoins du client
+\item Implication forte du client
+\item Interaction courtes avec le client
+\item Sûrement plus adaptée aux systèmes d'informations d'entreprise qu'à celui des logiciels critiques
+\item RAD, XP, SCRUM, ...
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Douze principes des méthodes agiles}
+ \begin{itemize}
+\item Satisfaire le client en livrant tôt et régulièrement des logiciels utiles
+\item Accepter le changement même tardivement dans le développement
+\item Livrer une application fonctionnelle toutes les 2 semaines/1 mois
+\item Faire collaborer quotidiennement les experts métier et les développeurs 
+\item Bâtir le projet autour de personnes motivées
+\item Converser en face à face pour transmettre l'information 
+\item Mesurer la progression du projet à ses prototypes
+\item Avoir un rythme de développement soutenable
+\item Prendre le temps de faire de la veille technologique
+\item Faire simple en maximisant la quantité de travail à ne pas faire 
+\item Permettre aux équipes de s'auto-organiser
+\item Faire régulièrement des séances de débriefing pour s'améliorer
+\end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{eXtreme Programming, Scrum. . .}
+
+\begin{itemize}
+\item Réactivité et implication forte du commanditaire :
+\begin{itemize}
+\item approches en spirale (ou itératives)
+\item implication forte du commanditaire dans la boucle 
+\item travail de codage à plusieurs
+\item techniques de prototypage rapide
+\end{itemize}\end{itemize}
+\begin{itemize}
+\item  Approches fondées sur l'IHM :
+\begin{itemize}
+\item partie IHM : en taille et en qualité
+\item faire intervenir l'utilisateur très tôt dans la conception
+\item s'intéresser à l'interface puis définir les fonctions à programmer
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+ %Coût du logiciel >> coût du matériel
+ %Coût de maintenance >> coût de développement
+%Lafiabilitéestfondamentale
+
+
+
+\end{document}
+
