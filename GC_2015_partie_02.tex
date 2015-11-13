@@ -1,0 +1,987 @@
+%---------------------------------------------------------------------------------
+%     Configuration
+%---------------------------------------------------------------------------------
+\documentclass[hyperref={pdfpagelabels=false}]{beamer}
+\usepackage{lmodern}
+\usepackage{wrapfig}
+\usetheme{CambridgeUS}
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+
+%---------------------------------------------------------------------------------
+%     1er Page
+%---------------------------------------------------------------------------------
+\title{Génie logiciel}  
+%\author{Jun Chen}\institute{Université Normale de Shanghai, Département d'informatique}
+%\date{Le 30 Novembre, 2015} 
+\begin{document}
+%\logo{\includegraphics[scale=0.14]{shsf.png}}
+\begin{frame}
+\titlepage
+\end{frame} 
+
+%---------------------------------------------------------------------------------
+%     Sommaire
+%---------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Sommmaire}
+\tableofcontents
+\end{frame} 
+
+
+%---------------------------------------------------------------------------------
+%   1  Introduction à UML
+%---------------------------------------------------------------------------------
+\section{Introduction à UML} 
+\begin{frame}
+\frametitle{UML : Définition} 
+\begin{itemize}
+\item  Acronyme : « Unified Modeling Language »
+\item  Selon l?OMG (Object Management Group), UML est un langage visuel dédié à la spécification, la construction et la documentation des artefacts d?un système.
+\item  UML est le standard de facto de notation graphique pour la création et le représentation des modèles graphiques (accompagnés de texte) associés aux logiciels.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{UML : Définition} 
+\begin{itemize}
+\item  UML, un ensemble de notations particulièrement vaste (contrairement au modèle Entité-Association).
+\item  UML définit différents profils UML qui constituent des sous-ensembles spécialisés de la notation pour certains domaines (ex : profil EJB ? Enterprise JavaBeans - pour les diagrammes EJB).
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{UML : Définition} 
+\begin{itemize}
+
+\item  Langage :
+\begin{itemize}\item Syntaxe et règles d'écriture\item Notations graphiques normalisées
+\end{itemize}
+\item  ... de modélisation :
+\begin{itemize}\item Abstraction du fonctionnement et de la structure du système\item  Spécification et conception
+\end{itemize}\item  ... unifié :
+\begin{itemize}\item  Fusion de plusieurs notations ante?rieures : Booch, OMT, OOSE\item  Standard défini par l'OMG (Object Management Group)\item  Dernière version : UML 2.5 (Juin 2015)
+\end{itemize}
+\end{itemize}
+En résumé : Langage graphique pour visualiser, spécifier, construire etdocumenter un logiciel
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Pourquoi UML?} 
+\begin{itemize}
+\item  Besoin de modéliser pour construire un logiciel
+\begin{itemize}
+\item  Modélisation des aspects statiques et dynamiques\item  Modélisation à différents niveaux d'abstraction et selonplusieurs vues\item  Indépendant du processus de développement
+\end{itemize}
+\item Besoin de langages normalisés pour la modélisation
+\begin{itemize}
+ \item  Langage graphique, semi-formel\item   Standard très utilisé
+ \end{itemize}
+\item Conception orientée objet
+\begin{itemize}\item   Façon efficace de penser le logiciel\item   Indépendance du langage de programmation (langages non objet)
+ \end{itemize}
+  \end{itemize}
+ \end{frame}
+ 
+ 
+ 
+ 
+ \begin{frame}
+\frametitle{ Conception orientée objet avec UML} 
+UML {\color{red} n'est pas une méthode }de conception \\ 
+UML {\color{green} est un outil indépendant } de la méthode
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Diagrammes UML} Représentation du logiciel à différents points de vue :
+\begin{itemize}\item Vue des cas d'utilisation : vue des acteurs (besoins attendus)\item Vue logique : vue de l?intérieur (satisfaction des besoins)\item  Vue d'implantation : dépendances entre les modules\item  Vue des processus : dynamique du système\item  Vue de déploiement : organisation environnementale du logiciel
+\end{itemize}
+
+\centerline{\includegraphics[width=.6\textwidth]{Diagramme_UML}}
+ 
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Diagrammes UML} 
+14 diagrammes hiérarchiquement dépendants \\Modélisation à tous les niveaux le long du processus de développement
+ 
+ \begin{itemize} 
+ \item Diagrammes structurels :
+  \begin{itemize}\item    {\color{green} Diagramme de classes}\item   {\color{green}  Diagramme d'objets}\item   Diagramme de composants\item   Diagramme de déploiement\item   Diagramme de paquetages\item   Diagramme de structure composite\item   Diagramme de profils
+ \end{itemize}
+ \end{itemize}
+ 
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Diagrammes UML} 
+
+\begin{itemize} 
+\item Diagrammes comportementaux :
+\begin{itemize}\item   {\color{green} Diagramme de cas d'utilisation}\item  {\color{green}  Diagramme états-transitions}\item  Diagramme d'activité\end{itemize}
+  
+ \item Diagrammes d'interaction :
+ \begin{itemize} 
+\item   {\color{green} Diagramme de séquence}\item   Diagramme de communication\item   Diagramme global d'interaction\item   Diagramme de temps
+ \end{itemize}
+ 
+ \end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Exemple d'utilisation des diagrammes} 
+\begin{itemize} 
+\item Spécification
+
+\begin{itemize} 
+\item   Diagrammes de cas d'utilisation : besoins des utilisateurs\item   Diagrammes de séquence : scénarios d'interactions entre les utilisateurs et le logiciel, vu de l'extérieur\item   Diagrammes d'activité ou états-transitions : enchaînement d'actions représentant un comportement du logiciel
+ \end{itemize}
+ 
+ \item Conception
+ \begin{itemize} 
+\item   Diagrammes de classes : structure interne du logiciel\item  Diagrammes d'objet : état interne du logiciel à un instant donné\item   Diagrammes états-transitions : évolution de l'état d'un objet\item   Diagrammes de séquence : scénarios d'interactions avec les utilisateurs ou au sein du logiciel\item   Diagrammes de composants : composants physiques du logiciel\item   Diagrammes de déploiement : organisation matérielle du logiciel
+ \end{itemize}
+ 
+ \end{itemize}
+\end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Utilisation d?UML} 
+Il existe trois façons d?utiliser UML?
+UML en mode esquisse
+\begin{itemize}
+\item  Diagrammes informels et incomplets
+\item  Souvent tracés à la main
+\item  Créés pour expliciter des parties délicates de l?espace du problème ou de la solution en exploitant la puissance des langages graphiques.
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Utilisation d?UML} 
+UML en mode plan
+\begin{itemize}
+\item  Diagrammes de conception relativement détaillés utiles pour :
+\begin{itemize}
+\item  La pro-ingénierie (génération de code à partir de diagrammes);
+\item  La rétro-ingénierie, qui permet de visualiser et de mieux comprendre le code existant en générant des diagrammes UML;
+\end{itemize}
+\item Avant la programmation, des diagrammes détaillés peuvent servir de guide pour la génération de code, soit manuellement, soit automatiquement avec un outil.
+\end{itemize}
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Utilisation d?UML} 
+UML comme langage de programmation
+\begin{itemize}
+\item  Spécification complète et exécutable d?un système logiciel en UML. 
+\item  Le code exécutable sera généré automatiquement et ne sera ni revu ni modifié par les développeurs.
+\item  Toujours en développement.
+\end{itemize}
+\end{frame}
+
+
+
+
+%---------------------------------------------------------------------------------
+%     Section 2  Analyse des besoins et spécification
+%---------------------------------------------------------------------------------
+\section{Analyse des besoins et spécification}
+
+\begin{frame}
+\frametitle{Analyse des besoins et spécification} 
+Objectif - Fournir une vue claire de ce que doit faire le logiciel : le cahier des charges fonctionnel
+\begin{itemize}
+\item  Définir les fonctionnalités du produit\item  Déterminer les contraintes de conception du logiciel\item  Clarifier le cahier des charges (ambiguïtés, contradictions)
+\end{itemize}
+ 
+ Enjeu - Contrat entre le client et le fournisseur :
+ \begin{itemize}
+\item  Pour le client : tous les besoins sont exprimés\item  Pour le fournisseur : tous les besoins exprimés sont réalisables
+ \end{itemize}
+ Méthode Raffinement du cahier des charges initial validé par des allers-retours avec le client
+\end{frame}
+
+
+
+ \begin{frame}
+\frametitle{Spécification vs. conception} 
+
+
+\begin{block}{Spécifier = Décrire le problème}
+Que doit faire le logiciel ?
+\end{block}
+
+\centerline{$\Downarrow$}
+
+\begin{alertblock}{Concevoir = Élaborer une solution}
+Comment le réaliser ? 
+\end{alertblock}
+
+\end{frame}
+
+
+
+ \begin{frame}
+\frametitle{Contenu du cahier des charges fonctionnel} 
+
+Description générale
+\begin{itemize}\item Contexte d'utilisation (utilisateurs, environnement)\item Fonctionnalités\item Interface utilisateur\item Contraintes matérielles, de performance, de sécurité...
+\end{itemize}
+  Spécification des exigences
+  \begin{itemize}\item  Exigences fonctionnelles : spécification des cas d'utilisation, scénarios d'utilisation\item Interface : prototype, storyboard, lien avec les fonctionnalités\item  Exigences non fonctionnelles : utilisabilité, performance, sécurité...
+\end{itemize}
+\end{frame}
+
+
+
+
+ \begin{frame}
+\frametitle{Contexte d'utilisation} 
+Contexte d'utilisation
+  \begin{itemize}\item Utilisateurs : expérience, compétences, connaissance du système\item  Utilisation : fréquence, durée d'utilisation\item  Environnement technique : matériel, ressources, réseau
+  \end{itemize}Permet de spécifier les contraintes de qualité en termes de
+    \begin{itemize}\item facilité d'utilisation\item  efficacité, performance\item fiabilité, portabilité
+  \end{itemize}
+\end{frame}
+
+
+
+
+ \begin{frame}
+\frametitle{Description des cas d'utilisation} 
+ Objectif : Comprendre les besoins du client pour rédiger le cahier deschargesPrincipe :
+   \begin{itemize}\item Définir les limites du système\item  Définir l'environnement du système : les utilisateurs ou élémentsqui interagissent avec le système\item  Définir les utilisations principales du système : à quoi sert-il ?
+     \end{itemize}Éléments constitutifs :
+ \begin{itemize}\item  Diagrammes des cas d'utilisation\item  Description textuelle des cas d'utilisation\item  Diagrammes de séquence des scénarios d'utilisation
+\end{itemize}
+\end{frame}
+
+
+
+
+ \begin{frame}
+\frametitle{Cas d'utilisation} 
+Fonctionnalités principales du système du point de vue extérieur
+Acteur : Entité qui interagit avec le système
+\begin{itemize}\item   Personne, chose, logiciel, extérieur au système décrit\item   Représente un rôle (plusieurs rôles possibles pour une même entité)\item   Identifié par le nom du rôle
+\end{itemize}
+Cas d'utilisation : Fonctionnalité visible de l'extérieur
+\begin{itemize}\item    Action déclenchée par un acteur\item    Identifié par une action (verbe à l'infinitif)
+\end{itemize}
+
+\begin{alertblock}{Résumé}
+?Vision du système centrée sur l'utilisateur
+\end{alertblock}
+\end{frame}
+
+
+ \begin{frame}
+\frametitle{Spécification des cas d'utilisation} 
+ \includegraphics[width=1\textwidth]{spec_usecase}
+\end{frame}
+
+
+
+ \begin{frame}
+\frametitle{Diagramme des cas d'utilisation} 
+ \includegraphics[width=1\textwidth]{D_usecase}
+\end{frame}
+
+
+
+ \begin{frame}
+\frametitle{Relations entre cas d'utilisation} 
+Inclusion : S'identifier est nécessaire pour Commander
+ \centerline{\includegraphics[width=.8\textwidth]{R_usecase_1}}
+ Extension : Souscrire une assurance est une option possible pendant le scénario de Commander
+  \centerline{\includegraphics[width=.6\textwidth]{R_usecase_2}}
+  Généralisation : Modifier son adresse est un cas particulier de Gérer son compte
+    \centerline{\includegraphics[width=.6\textwidth]{R_usecase_3}}
+\end{frame}
+
+
+
+
+ \begin{frame}
+\frametitle{Relation entre acteurs} 
+Généralisation : Un Client adhérent peut faire tout ce que fait un Client, et peut également utiliser ses points de fidélité
+ \includegraphics[width=.9\textwidth]{R_acteurs}
+\end{frame}
+
+
+ \begin{frame}
+\frametitle{Diagramme des cas d'utilisation} 
+Généralisation : Un Client adhérent peut faire tout ce que fait un Client, et peut également utiliser ses points de fidélité
+ \includegraphics[width=.9\textwidth]{D_uc}
+\end{frame}
+
+
+
+
+ \begin{frame}
+\frametitle{Recommandations} 
+Rester lisible
+\begin{itemize} \item Pas plus d'une dizaine de cas dans un diagramme\item  Au besoin, faire plusieurs diagrammes (si cas disjoints entreacteurs, pour détailler un cas...)\item  Relations entre cas seulement si nécessaires et pas trop lourdes
+\end{itemize}Accompagner le diagramme d'un glossaire expliquant le vocabulaire
+\begin{itemize}\item  Pour chaque acteur et chaque cas d'utilisation, une phraseexpliquant le rôle de l'acteur et le scénario représenté par le cas\item  Expliquer les relations entre acteurs et entre cas (hiérarchie,extends, includes...)
+\end{itemize}Pour les détails, privilégier la description textuelle des cas d'utilisation
+\end{frame}
+
+
+ \begin{frame}
+\frametitle{Extrait d'un glossaire} 
+\begin{itemize}
+ \item Client : Un client est un internaute inscrit sur le site. \item Client adhérent : Un client adhérent est un client particulier inscrit au programme de fidélité du site. \item Commander : Commander un ensemble de produits proposés sur le site. Il faut posséder un compte et être identifié en tant que client pour pouvoir passer une commande. \item Gérer son compte : Regroupe les opérations de modifications de ses coordonnées et la possibilité de désactiver son compte. Il faut être identifié en tant que client pour gérer son compte. \item Utiliser points fidélité : Possibilité d'utiliser tout ou partie des pointsde fidélité acquis pendant une commande, de manière à bénéficier deréductions.
+\end{itemize}
+\end{frame}
+
+
+ \begin{frame}
+\frametitle{Description textuelle des cas d'utilisation} Diagrammes de cas d'utilisation
+\begin{itemize} \item  Utiles pour discussion avec le client car intuitifs et concis \item  Pas suffisants pour l'équipe de développement
+\end{itemize}Nécessité d'une description détaillée des scénarios représentés par chacun des cas :
+\begin{itemize} \item  Description textuelle en langue naturelle structurée \item  Vocabulaire précis correspondant aux diagrammes
+\end{itemize}
+\end{frame}
+
+
+ \begin{frame}
+\frametitle{Cas d'utilisation détaillé} Description textuelle d'un cas d'utilisation
+\begin{itemize} \item   Nom du cas d'utilisation \item   Brève description \item   Acteurs \item   Contexte \item   Données en entrée et pré-conditions \item   Données en sortie et post-conditions \item   Scénario principal pour ce cas d'utilisation- Étapes à suivre pour réaliser ce cas \item   Variantes, cas d'erreur - Déviations des étapes du scénario principal, scénarios alternatifs, scénarios d'erreur
+\end{itemize}
+\end{frame}
+
+
+
+ \begin{frame}
+\frametitle{Cas d'utilisation détaillé} 
+Nom : CommanderActeur : ClientDonnées d'entrée : Produits sélectionnés par le clientLe cas d'utilisation commence lorsque le client clique sur le bouton "Commander"
+\\
+Scénario principal :
+\begin{enumerate} \item    Le système demande au client de saisir son identifiant et son mot de passe. \item    Le client saisit son identifiant et son mot de passe et valide. \item    Le système demande au client de choisir son adresse de livraison parmi sa liste d'adresses ou d'en saisir une nouvelle. \item    Le client choisit une adresse de livraison et valide. \item    Le système demande au client de choisir un mode d'expédition parmi une liste prédéfinie (à préciser). \item    Le client choisit un mode d'expédition et valide.
+\end{enumerate}
+\end{frame}
+
+
+
+ \begin{frame}
+\frametitle{Cas d'utilisation détaillé} 
+\begin{itemize} \item   Le système affiche un récapitulatif de la commande, indique le montant total de la livraison et demande au client de choisir un mode de paiement parmi une liste prédéfinie (à préciser). \item  Le client choisit un mode de paiement et valide. \item  Le système demande au client de saisir ses informations de paiement. \item   Le client saisit ses informations de paiement et valide. \item  Le système informe le client que la transaction s'est effectuée correctement et un e-mail récapitulatif de la commande est envoyé au client.
+\end{itemize}
+\end{frame}
+
+
+
+ \begin{frame}
+\frametitle{Cas d'utilisation détaillé} 
+\begin{itemize} \item  Scénario d'erreur : Client inconnu3a. Le client n'est pas connu du système. Le système affiche un messaged'erreur. Retour à l'étape 1. \item  Scénario alternatif : Nouvelle adresse de livraison4a. Le client saisit une nouvelle adresse de livraison et valide. Le scénario reprend à l'étape 5 \item  Scénario alternatif : Modifications des choix de livraison8a. Le client demande à modifier son adresse de livraison. \item  Retour à l'étape 3.8b. Le client demande à modifier le mode de livraison. Retour à l'étape 5. \item  Scénario d'erreur : Transaction impossible11a. Le système informe le client que ses informations de paiement sont incorrectes.Retour à l'étape 9.
+\end{itemize}
+\end{frame}
+
+
+ \begin{frame}
+\frametitle{Exemple de liens entre diagramme et texte} 
+ \includegraphics[width=.9\textwidth]{Example_d_texte}
+\end{frame}
+
+
+ \begin{frame}
+\frametitle{Exemple de liens entre diagramme et texte} 
+Diagramme de séquence niveau analyseNiveau analyse? Système vu comme une boîte noire : pas d'échanges de messages internes au système (conception)? Représentation de scénarios d'utilisation particuliers, séquentiels : pas de boucles ou de branchementsObjectifs? Illustrer chaque cas isolément (scénario principal et alternatives)? Illustrer les interactions entre cas (scénarios d'utilisation)Mise en forme? Messages informels (pas des appels de méthodes)? Noms des messages liés aux cas d'utilisation? Mise en avant des données utiles au scénario (arguments)
+\end{frame}
+
+ \begin{frame}
+\frametitle{Illustration d'un cas d'utilisation} 
+ \includegraphics[width=.9\textwidth]{ill_1}
+\end{frame}
+
+ 
+ \begin{frame}
+\frametitle{Illustration d'un cas d'utilisation} 
+Principe : Mettre en évidence les relations entre les différents cas
+ \includegraphics[width=.9\textwidth]{ill_2}
+ Mise en évidence de la nécessité d'être inscrit pour pouvoir commander
+\end{frame}
+
+
+ \begin{frame}
+\frametitle{Scénario d'utilisation concret} 
+Principe : Variables remplacées par des valeurs concrètes. Permet deconstruire des scénarios d'utilisation complexes pour le test
+ \includegraphics[width=.9\textwidth]{scenario1}
+ Mise en évidence de la nécessité d'être inscrit pour pouvoir commander
+\end{frame}
+
+
+ \begin{frame}
+\frametitle{Scénario d'utilisation concret} 
+Scénario d'utilisation = interactions entre les acteurs et le systèmePas de messages entre acteurs
+ \includegraphics[width=.9\textwidth]{scenario2}
+\end{frame}
+
+
+ \begin{frame}
+\frametitle{Interface utilisateur} Prototype d'interface utilisateur
+ \begin{itemize}\item Écrans, boutons, menus\item  Transitions entre écrans, pop-ups, messages d'erreur ? Storyboards
+ \end{itemize}Cohérence avec les cas et scénarios d'utilisation? Scénarios d'utilisation = suite d'actions dans l'interface qui permet de réaliser un cas d'utilisation
+\end{frame}
+
+ \begin{frame}
+\frametitle{Prototype d'interface utilisateur} 
+ \includegraphics[width=.9\textwidth]{prototype}
+ \end{frame}
+ 
+ \begin{frame}
+\frametitle{Mise en garde} 
+ \includegraphics[width=.9\textwidth]{mise_en_garde}
+ \end{frame}
+
+%---------------------------------------------------------------------------------
+%     Section 3  Conception
+%---------------------------------------------------------------------------------
+
+\section{Conception}
+
+ \begin{frame}
+\frametitle{Documentation du processus de GL} 
+ \includegraphics[width=.9\textwidth]{doc_gc}
+ \end{frame}
+
+
+\begin{frame}
+\frametitle{Conception} 
+ Objectif Fournir une vue interne de la structure du logiciel : le dossier de conception détaillée
+\begin{itemize}\item   Proposer une architecture logicielle/matérielle\item   Définir les différents composants du logiciel\item   Associer les fonctionnalités spécifiées aux composants
+\end{itemize}Enjeu Contrat entre les développeurs et le chef de projet
+\begin{itemize}   \item  Chef de projet : la solution proposée répond à la spécification\item  Développeurs : la conception structure la réalisation
+\end{itemize}
+ \end{frame}
+
+
+
+
+\begin{frame}
+\frametitle{Contenu du document de conception} Conception générale
+\begin{itemize}\item  Description de la structure globale du logiciel\item  Description succinte de la dynamique du logiciel
+\end{itemize}Conception détaillée
+\begin{itemize}\item  Structure détaillée du logiciel\item  Réalisation des cas d'utilisation\item  Nouvelle version de l'interface\item  Réalisation des contraintes de performance, sécurité...
+\end{itemize}
+ \end{frame}
+
+
+
+\begin{frame}
+\frametitle{Architecture logicielle} Structure du logiciel en termes de composants
+\begin{itemize}\item Fonctionnalités associées aux composants\item Interfaces entre les composants\item  Dépendances entre les composants\item Décomposition des composants en sous-composants
+\end{itemize}Objectif
+\begin{itemize}\item  Éviter les oublis/redondances de fonctionnalités\item Décentraliser le développement\item aciliter l'intégration
+\end{itemize}
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Réalisation des exigences} Réalisation des cas d'utilisation
+\begin{itemize}\item  Diagrammes de séquence instanciés sur le diagramme de classes : réalisation d'une fonctionnalité comme suite d'interactions entre des objets du système\item  Algorithmes principaux en pseudo-code
+\end{itemize}Réalisation des exigences non fonctionnelles Solutions adoptées pourrépondre aux contraintes de performance, sécurité...
+\\Objectif Validation de la conception par rapport au cahier des charges fonctionnel
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Objets et classes} Conception orientée objet : Représentation du système comme unensemble d'objets interagissant \\Diagramme de classes
+\begin{itemize}\item Représentation de la structure interne du logiciel\item Utilisé surtout en conception mais peut être utilisé en analyse
+\end{itemize}Diagramme d'objets
+\begin{itemize}\item Représentation de l'état du logiciel (objets + relations)\item Diagramme évoluant avec l'exécution du logiciel
+\begin{itemize}\item  création et suppression d'objets\item  modification de l'état des objets (valeurs des atributs)\item modification des relations entre objets
+\end{itemize}
+\end{itemize}
+\end{frame}
+
+
+ \begin{frame}
+\frametitle{Diagramme de classes} 
+ \includegraphics[width=.9\textwidth]{diagramme_classe}
+ \end{frame}
+
+ \begin{frame}
+\frametitle{Diagramme d'objets} 
+ \includegraphics[width=.9\textwidth]{diagramme_objet}
+ \end{frame}
+
+
+\begin{frame}
+\frametitle{Contraintes associées au diagramme} 
+Contraintes non exprimées dans le diagramme de classes
+\begin{itemize}\item Le code barre d'un exemplaire et l'ISBN d'un livre sont uniques\item Un utilisateur ne peut pas emprunter plus d'un exemplaire d'un même livre\item Si un exemplaire est emprunté, sa date de retour n'est pas null\item Si un exemplaire n'est pas emprunté, sa date de retour est null\item La caution et l'ISBN d'un livre, les numéros de travée, étagère et niveau sont des entiers positifs
+\end{itemize}Invariants à ajouter explicitement dans la documentation, à prendre en compte dans l'implantation pour respecter le cahier des charges
+ \end{frame}
+
+
+\begin{frame}
+\frametitle{Objets et classes} Objet : Entité concrète ou abstraite du domaine d'application Décrit par : identité (adresse mémoire)
+\begin{itemize}\item état (attributs)\item  comportement (opérations)
+\end{itemize}Classe : Regroupement d'objets de même nature (mêmes attributs + mêmes opérations)\\
+Objet = instance d'une classe
+ \includegraphics[width=.9\textwidth]{d_objet}
+ \end{frame}
+
+
+\begin{frame}
+\frametitle{Classes} 
+\begin{wrapfigure}{r}{0.3\textwidth}
+ \includegraphics[width=.3\textwidth]{d_classes}
+ \end{wrapfigure}
+ \text{}Attributs
+\begin{itemize}\item  Valeur des attributs = état de l'objet Objets différents (identités différentes) peuvent avoir les mêmes attributs Opérations\item Caractéristique partagée par tous les objets de la classe\item  Associe à chaque objet une valeur\item Type associé simple (int, bool...), primitif (Date) ou énuméré
+\item Valeur des attributs = état de l'objet
+\end{itemize}
+Objets différents (identités différentes) peuvent avoir les mêmes attributs
+\\
+Opérations
+\begin{itemize}
+\item Service qui peut être demandé à tout objet de la classe\item  Comportement commun à tous les objets de la classe
+\end{itemize}
+Ne pas confondre avec une méthode = implantation de l'opération
+ \end{frame}
+ 
+
+
+
+ \begin{frame}
+\frametitle{ Relations entre classes} 
+\begin{itemize}\item  Association entre classes : Relation binaire (en général)\item  Rôle : Nomme l'extrémité d'une association, permet d'accéder aux objets liés par l'association à un objet donné \item  Multiplicité : Contraint le nombre d'objets liés par l'association
+ \end{itemize}
+ \includegraphics[width=.9\textwidth]{relation_classe}
+ \end{frame}
+
+\begin{frame}
+\frametitle{Attribut et association} Rappel : Types des attributs simple, primitif ou énuméréEn particulier, pas d'attribut dont le type est une classe du diagramme
+Mais association vers cette classe
+ \includegraphics[width=.9\textwidth]{Attribut_association}
+\end{frame}
+
+
+ \begin{frame}
+\frametitle{Associations particulières} 
+\begin{figure}[h]
+  \centering
+    \caption{Association réflexive}
+  \includegraphics[scale=0.45]{Association_reflexive}
+  \label{Association réflexive}
+\end{figure}
+
+\begin{figure}[h]
+  \centering
+    \caption{Associations multiples}
+  \includegraphics[scale=0.45]{Associations_multiples}
+  \label{Associations multiples}
+\end{figure}
+\end{frame}
+
+
+ \begin{frame}
+\frametitle{Classe-association} Permet de paramétrer une association entre deux classes par une classe
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.45]{Classe-association_1}
+\end{figure}
+Équivalence en termes de classes et d'associations
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.45]{Classe-association_2}
+\end{figure}
+\end{frame}
+
+
+
+ \begin{frame}
+\frametitle{Classe-association} Exemple de diagramme d'objets
+\begin{figure}[h]
+  \centering
+  \includegraphics[scale=0.45]{Classe-association_3}
+\end{figure}
+\end{frame}
+
+
+
+ \begin{frame}
+\frametitle{Agrégation} Association particulière entre classes
+\begin{itemize}\item  Dissymétrique : une classe prédominante sur l'autre\item  Relation de type composant-composite
+\end{itemize}Deux types d'agrégation
+\begin{itemize}\item Agrégation faible 
+\item Composition
+\end{itemize}ExempleLecteur de contenu audio permettant de créer des listes de lecture
+  \includegraphics[scale=0.45]{Agregation}
+\end{frame}
+
+
+ \begin{frame}
+\frametitle{Composition} Agrégation par valeur
+\begin{itemize}\item  Le composite contient ses composants\item  La création ou destruction du composite entraîne la création oudestruction de ses composants\item  Un objet ne fait partie que d'un composite à la fois
+\end{itemize}Exemple
+\begin{itemize}\item  Un morceau n'appartient qu'à un album\item  La suppression de l'album entraîne la suppression de tous ses morceaux
+\end{itemize}
+
+  \includegraphics[scale=0.45]{Composition}
+\end{frame}
+
+
+
+ \begin{frame}
+\frametitle{Hiérarchie de classes} 
+\begin{itemize}\item Principe : Regrouper les classes partageant des attributs et des opérations et les organiser en arborescence\item Spécialisation : raffinement d'une classe en une sous-classe\item Généralisation : abstraction d'un ensemble de classes en super-classe
+\end{itemize}
+  \includegraphics[scale=0.45]{Hierarchie}
+\end{frame}
+
+
+
+ \begin{frame}
+\frametitle{Hiérarchie de classes} 
+\begin{itemize}\item Principe : Regrouper les classes partageant des attributs et des opérations et les organiser en arborescence\item Spécialisation : raffinement d'une classe en une sous-classe\item Généralisation : abstraction d'un ensemble de classes en super-classe
+\end{itemize}
+  \includegraphics[scale=0.45]{Hierarchie2}
+\end{frame}
+
+
+ \begin{frame}
+\frametitle{Hiérarchie de classes} 
+\begin{itemize}\item Principe : Regrouper les classes partageant des attributs et des opérations et les organiser en arborescence\item  Héritage : Construction d'une classe à partir d'une classe plus haute dans la hiérarchie (partage des attributs, opérations, contraintes...)
+\end{itemize}
+  \includegraphics[scale=0.45]{Hierarchie3}
+\end{frame}
+
+
+
+ \begin{frame}
+\frametitle{Classe abstraite} Classe sans instance, seulement une base pour classes héritées Notation : nom de la classe en italique (ou stéréotype "abstract")
+  \includegraphics[scale=0.45]{Classe_abstraite}
+\end{frame}
+
+
+ \begin{frame}
+\frametitle{Diagramme de classes revu} 
+  \includegraphics[scale=0.45]{Diagramme_classes_revu}
+\end{frame}
+
+
+
+ \begin{frame}
+\frametitle{Opérations} Effets possibles d'une opération
+\begin{itemize}\item  Renvoyer le résultat d'un calcul\item  Modifier l'état du système
+
+\begin{itemize}\item modification de la valeur des attributs 
+\item ajout/suppressions de liens entre objets 
+\item  création/destruction d'objets
+\end{itemize}
+\end{itemize}
+  \includegraphics[scale=0.45]{Operations5} 
+\end{frame}
+
+
+%Héritage d'opération Opération commune aux sous-classes :%? Définition dans la super-classe
+
+ \begin{frame}
+\frametitle{Redéfinition d'opération} Opération commune aux sous-classes :
+\begin{itemize}\item Définition dans la super-classe\item Possibilité de redéfinition locale de l'opération dans une sous-classe pour prendre en compte un cas particulier
+\end{itemize}
+  \includegraphics[scale=0.4]{Heritage2} 
+\end{frame}
+
+ \begin{frame}
+\frametitle{Classe abstraite} Classe sans instance car certaines opérations non définies
+\begin{itemize}\item Opération non définie en italique\item  Nom de la classe en italique (ou stéréotype "abstract")
+\end{itemize}Exemple : On ne peut pas calculer la surface d'une forme sans savoir de quelle forme il s'agit
+  \includegraphics[scale=0.4]{Classe_abstraite_2} 
+\end{frame}
+
+ \begin{frame}
+\frametitle{Polymorphisme} 
+\begin{itemize}\item Contexte : Définition d'une opération abstraite dans les classes héritant d'une classe abstraite\item Opération polymorphe : Opération définie dans différentes sous-classes mais opération spécifique à la sous-classe
+\end{itemize}
+  \includegraphics[scale=0.4]{Polymorphisme} 
+\end{frame}
+
+ \begin{frame}
+\frametitle{Interface} Liste d'opérations constituant un contrat à respecter par les classes réalisant l'interface\begin{itemize}\item Pas une classe, ne peut pas servir à créer des objets\item Toutes les opérations sont abstraites
+\end{itemize}
+  \includegraphics[scale=0.4]{Interface} 
+\end{frame}
+
+
+
+ \begin{frame}
+\frametitle{Notations avancées} Attributs et opérations de classes\begin{itemize}\item Attribut de classe : valeur commune à toutes les instances\item  Opération de classe : opération sur la classe elle-même (création de nouvelles instances par exemple)\item Soulignés dans la classe
+\end{itemize}
+  \includegraphics[scale=0.4]{Notations_avance} 
+\end{frame}
+
+
+ \begin{frame}
+\frametitle{Notations avancées} \begin{itemize}\item   + : public, accessible à toutes les classes\item   \#: protégé, accessible uniquement aux sous-classes\item   -: privé, inaccessible à tout objet hors de la classe Pas de visibilité par défaut
+\end{itemize}
+  \includegraphics[scale=0.4]{Notations_avance2} 
+\end{frame}
+
+
+ \begin{frame}
+\frametitle{Attribut dérivé} Peut être calculé à tout moment à partir d'autres informations du système\begin{itemize}\item  Notation : /attribut\item   Peut nécessiter des informations de plusieurs classes
+\end{itemize}
+
+\end{frame}
+
+ \begin{frame}
+\frametitle{Association dérivée} 
+Redondance d'une association : Association n'apportant pas d'information supplémentaire, se demander si nécessaireSi nécessaire, la faire apparaître comme association dérivée
+\\
+Association dérivée : Peut être calculée à tout moment à partir d'autres informations du systèmeNotation : association
+  \includegraphics[scale=0.4]{Association_derivee} 
+\end{frame}
+
+
+
+ \begin{frame}
+\frametitle{Limites du diagramme de classes} Diagramme de classes représente la structure du système en termes d'objets et de relations entre ces objetsNe permet pas de représenter :\begin{itemize}\item Valeurs autorisées des attributs\item  Conditions sur les associations\item  Relations entre les attributs ou entre les associations
+\end{itemize}Expression des contraintes liées au diagramme :
+\begin{itemize}\item  Notes dans le diagramme\item  Texte accompagnant le diagramme\item  OCL : langage de contraintes formel associé à UML
+\end{itemize}
+\end{frame}
+
+
+
+
+ \begin{frame}
+\frametitle{Contraintes, invariants} Propriétés :\begin{itemize}\item   Portant sur les éléments du modèle\item Doivent être vérifiées à tout instant\item  En général, restriction sur les diagrammes d'objets possibles àpartir du diagramme de classes\item  Héritage des contraintes de la super-classe vers les sous-classes
+\end{itemize}Contraintes présentes dans le diagramme :
+\begin{itemize}\item  Type des attributs\item  Multiplicités des associations
+\end{itemize}
+\end{frame}
+
+
+ \begin{frame}
+\frametitle{Contraintes sur les attributs} 
+  \includegraphics[scale=0.4]{Contraintes_les_attributs} 
+\end{frame}
+
+
+ \begin{frame}
+\frametitle{Contraintes associées à la multiplicité} 
+  \includegraphics[scale=0.4]{multiplicite} 
+\end{frame}
+
+
+ \begin{frame}
+\frametitle{Contraintes sur les associations} 
+  \includegraphics[scale=0.4]{associations} 
+\end{frame}
+
+
+
+ \begin{frame}
+\frametitle{Contraintes, invariants} 
+  \includegraphics[scale=0.4]{Contraintes_invariants} 
+\end{frame}
+
+ 
+
+ \begin{frame}
+\frametitle{Objectifs de la conception} Objectifs\begin{itemize}\item   Préparer l'implémentation du diagramme de classes et des opérations\item  Avoir une vision d'ensemble avant de programmer
+\end{itemize}Intérêt de la conception abstraite, à base de modèles
+\begin{itemize}\item Échapper aux détails et contraintes des langages de programmation\item  Vue haut niveau permettant de factoriser les comportements\item Documentation lisible et à part du code
+\end{itemize}
+\end{frame}
+
+ \begin{frame}
+\frametitle{Objectifs de la conception} Préciser et compléter le diagramme de classes\begin{itemize}\item  Préciser les attributs et les associations (visibilité, attributs et associations dérivés, implémentation des associations...)\item Ajouter les classes de contrôle et d'interface
+\end{itemize}Décrire les opérations complexes
+\begin{itemize}\item  Par de pseudo-code ou des diagrammes de séquence\item  Identifier les méthodes auxiliaires nécessaires\item  Identifier le profil précis des méthodes (paramètres, exceptions)\item  Répartir les méthodes dans les classes\item  Choisir les algorithmes pour implémenter les opérations
+\end{itemize}Réfléchir à la réalisation des contraintes et des exigences non fonctionnelles (unicité d'un attribut, contraintes de sécurité, de performance...)
+\end{frame}
+
+
+ \begin{frame}
+\frametitle{Diagrammes de séquence (conception)} Objectif : Représenter les communications avec et au sein du logiciel\begin{itemize}\item   Représentation temporelle des interactions entre les objets\item  Chronologie des messages échangés entre les objets et avec les acteurs
+\end{itemize}En conception : Décrire la réalisation des cas d'utilisation sur le système décrit par le diagramme de classes
+\begin{itemize}\item  Point de vue interne sur le fonctionnement du système\item  Description au niveau de l'instance (état du système à un instant)\item  Description de scénarios particuliers\item  Représentation des échanges de messages\item  Entre les acteurs et le système, entre les objets du système\item  De façon chronologique \end{itemize}
+\end{frame}
+
+
+
+ \begin{frame}
+\frametitle{Diagrammes de séquence (conception)} Éléments du diagramme de séquence\begin{itemize}\item   Acteurs\item  Objets (instances)\item  Messages (cas d'utilisation, appels d?opération)
+ \end{itemize}Principes de base : Représentation graphique de la chronologie des échanges de messages avec le système ou au sein du système
+ \begin{itemize}\item  " Vie" de chaque entité représentée verticalement\item  Échanges de messages représentés horizontalement
+ \end{itemize}
+\end{frame}
+
+
+
+ \begin{frame}
+\frametitle{Utilisation en phase de conception} 
+  \includegraphics[scale=0.4]{Utilisation_conception}   
+Objectif : Description de la réalisation d'un cas d'utilisation sur lesystème décrit par le diagramme de classes
+\\Problème : Communication entre les acteurs et le système vu comme un ensemble d'objets
+\end{frame}
+
+
+ \begin{frame}
+\frametitle{Utilisation en phase de conception} 
+  \includegraphics[scale=0.4]{Utilisation_conception2} 
+Communication entre acteurs et système via une interface (texte, web, physique...)
+\end{frame}
+
+ \begin{frame}
+\frametitle{Utilisation en phase de conception} 
+  \includegraphics[scale=0.4]{Utilisation_conception3} 
+Communication entre acteurs et système via une interface (texte, web, physique...)Solution : Création de classes de contrôle et de classes d'interface qui :\begin{itemize}\item  gèrent les interactions avec les acteurs\item  encapsulent le résultat des opérations
+ \end{itemize}
+\end{frame}
+
+
+ \begin{frame}
+\frametitle{Utilisation en phase de conception} 
+  \includegraphics[scale=0.4]{Utilisation_conception4} 
+ \end{frame} 
+  
+  
+   \begin{frame}
+\frametitle{  Éléments de base} 
+  \includegraphics[scale=0.4]{elements_de_base} 
+ \end{frame} 
+
+  
+     \begin{frame}
+\frametitle{Types de messages} 
+Message synchrone : Émetteur bloqué en attente du retour
+  \includegraphics[scale=0.4]{Types_de_messages} 
+
+Message asynchrone : Émetteur non bloqué, continue son exécution
+  \includegraphics[scale=0.4]{Types_de_messages2} 
+ \end{frame} 
+
+
+
+   \begin{frame}
+\frametitle{ Création et destruction d'objet} 
+  \includegraphics[scale=0.4]{destruction_objet} 
+ \end{frame} 
+
+
+   \begin{frame}
+\frametitle{Message réflexif} 
+  \includegraphics[scale=0.4]{Message_reflexif} 
+ \end{frame} 
+
+
+ 
+   \begin{frame}
+\frametitle{Alternative} 
+Principe : Condition à l'envoi d'un message Notation :? Deux diagrammes
+  \includegraphics[scale=0.4]{Alternative} 
+ \end{frame} 
+
+   \begin{frame}
+\frametitle{Alternative} 
+Principe : Condition à l'envoi d'un message Notation :\begin{itemize}\item   Deux diagrammes\item  Bloc d'alternative alt
+  \end{itemize} 
+  \includegraphics[scale=0.4]{Alternative2} 
+ \end{frame} 
+
+
+
+\begin{frame}
+\frametitle{Boucle} 
+Principe : Répéter un enchaînement de messages 
+Notation :\begin{itemize}\item    Note\item  Bloc de boucle loop
+ \end{itemize}
+   \includegraphics[scale=0.4]{Boucle} 
+ 
+\end{frame}
+
+
+
+   \begin{frame}
+\frametitle{Référence à un autre diagramme} 
+  \includegraphics[scale=0.4]{Reference_diagramme} 
+ \end{frame} 
+
+
+
+
+   \begin{frame}
+\frametitle{Exemple ? Analyse} 
+  \includegraphics[scale=0.4]{Exemple_Analyse} 
+ \end{frame} 
+
+   \begin{frame}
+\frametitle{Exemple - Conception} 
+  \includegraphics[scale=0.4]{Exemple_Conception} 
+ \end{frame} 
+
+   \begin{frame}
+\frametitle{Exemple - Conception} 
+  \includegraphics[scale=0.4]{Exemple_Conception2} 
+ \end{frame} 
+
+   \begin{frame}
+\frametitle{Exemple - Conception} 
+  \includegraphics[scale=0.4]{Exemple_Conception3} 
+ \end{frame} 
+
+
+   \begin{frame}
+\frametitle{Exemple - Conception} 
+Diagramme de classes complété avec les opérations nécessaires
+  \includegraphics[scale=0.4]{Exemple_Conception4} 
+ \end{frame} 
+ 
+ 
+
+   \begin{frame}
+\frametitle{Quelques règles} 
+Messages entre acteurs et interface\begin{itemize}\item   "Fausses" opérations liées au cas d'utilisation (même nom)\item  Arguments (saisis) et valeurs de retour (affichées) simples : texte, nombre
+ \end{itemize}Messages au sein du système
+ \begin{itemize}\item  Opérations du diagramme de classes\item  Si message de objA : ClasseA vers objB : ClasseB, alors opération du message dans ClasseB
+  \end{itemize}
+ \end{frame} 
+
+
+
+%---------------------------------------------------------------------------------
+%     Section 3
+%---------------------------------------------------------------------------------
+
+\begin{frame}
+\frametitle{} 
+\begin{itemize}
+\item  
+\item  
+\end{itemize}
+\end{frame}
+
+
+%---------------------------------------------------------------------------------
+%     Section 4
+%---------------------------------------------------------------------------------
+
+
+
+
+
+\end{document}
