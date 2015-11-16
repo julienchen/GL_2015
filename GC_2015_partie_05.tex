@@ -1,0 +1,229 @@
+
+
+
+%---------------------------------------------------------------------------------
+%     Configuration
+%---------------------------------------------------------------------------------
+\documentclass[hyperref={pdfpagelabels=false}]{beamer}
+\usepackage{lmodern}
+\usepackage{wrapfig}
+%\usepackage{enumitem} 
+\usetheme{CambridgeUS}
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+
+%---------------------------------------------------------------------------------
+%     1er Page
+%---------------------------------------------------------------------------------
+\title{Génie logiciel - Le test}  
+%\author{Jun Chen}\institute{Université Normale de Shanghai, Département d'informatique}
+%\date{Le 30 Novembre, 2015} 
+\begin{document}
+%\logo{\includegraphics[scale=0.14]{shsf.png}}
+\begin{frame}
+\titlepage
+\end{frame} 
+
+%---------------------------------------------------------------------------------
+%     Sommaire
+%---------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Sommmaire}
+\tableofcontents
+\end{frame} 
+
+
+
+
+\begin{frame}
+\frametitle{Le test} 
+\begin{itemize}
+ \item Vérifie que le produit est conforme aux intentions 
+ \begin{itemize} 
+     \item aspects surtout fonctionnels
+  \end{itemize} \item Un des moyens de l'assurance qualité
+   \begin{itemize}    \item le plus utilisé, aussi « vieux » que le développement
+   \end{itemize} \item Méthode dynamique (en exécutant le logiciel)   \begin{itemize}
+    \item vient après les méthodes statiques (analyses auto.) 
+     \item dernier rempart contre les erreurs résiduelles 
+      \item encore trop souvent empirique
+       \end{itemize}
+\end{itemize}
+\end{frame} 
+
+
+
+\begin{frame}
+\frametitle{Aspects psychologiques (1)} Importance de l'intentionles tests sont élaborés en fonction de l'intentionvouloir démontrer que le programme marche = mauvaise approche car les tests sont choisis en conséquence (ne trouvent rien de neuf)Activité de testprocessus « destructif »objectif : mettre en évidence des erreurssi on n'y aboutit pas, c'est un échec (!) (!)
+\end{frame} 
+
+
+
+\begin{frame}
+\frametitle{Aspects psychologiques (2)} ?Plus facile de trouver les erreurs des autres que les sienneson ne détruit pas bien ce qu'on a construit soi-même à force de regarder, on ne voit plus rienregard neuf : nouvelle interprétation des spécifications Séparation des tâcheséquipes de développement ? équipes d'intégration et de qualificationbudget de qualification et de développement séparés
+\end{frame} 
+
+
+\begin{frame}
+TestabilitéFacilité avec laquelle des tests peuvent être développés à partir des documents de conceptionfaisabilitécoûtcritères de décision de succès ou d'échec d'un test couvertureSe prépare tout au long du cycle de viespécifications, conception globale et détaillée (compréhensibles, précises, pertinentes, quantifiées...)
+\end{frame} 
+
+
+
+
+\begin{frame}
+Facteurs de testabilitéFacteurs de bonne testabilitéprécision, complétude, traçabilité des documents architecture simple et modulaireabstractions à travers des interfacespolitique claire des traitements d'erreurFacteurs de mauvaise testabilitéforte contraintes d'espace mémoire et d'efficacité intégration forte des traitementslongues chaînes de traitements
+\end{frame} 
+
+
+
+\begin{frame}
+Limites théoriques (1)
+Notion d'indécidabilité
+propriété indécidable = qu'on ne pourra jamais prouver dans le cas général (pas de procédé systématique)
+Exemples de propriétés indécidablesl'exécution d'un programme terminedeux programmes calculent la même choseun programme n'a pas d'erreurun paramètre du programme fait passer l'exécution ? suruneinstruction,unebranche,unchemindonné? surtouteslesinstruction,branchesouchemins
+\end{frame} 
+
+
+
+\begin{frame}Limites théoriques (2)?Une bataille perdue d'avance :un programme a un nombre infini (ou gigantesque) d'exécutions possiblesun jeu de tests n'examine qu'un nombre fini (petit) d'exécutions possiblesTrouver des heuristiques :approcher l'infini (ou le gigantesque) avec le fini (petit) tester les exécutions les plus « représentatives »
+\end{frame} 
+
+
+
+\begin{frame}
+Terminologie : alpha- et bêta-testTerminologie : alpha- et bêta-test?Alpha-test (alpha testing)test effectué en phase de développement, avant ladistribution du produit ( alpha-versions du produit) Bêta-test (beta testing)test effectué après l'alpha-test, en distribuant le produit (? des bêta-versions) à un groupe limitéd'utilisateurs avertis  dans la suite de ce cours : uniquement -test
+\end{frame} 
+
+
+
+
+\begin{frame}planification suffisamment tôt (difficile d'accroître les ressources en fin de développement)Organisation de l'activité de testOrganisation de l'activité de testActivité coûteuse ? optimiser l'investissementeffort minimum / probabilité max. de détection d'erreur incrémentalitéConstruction des testsaussi organisée que celle d'un produit (!)( il y a des sociétés qui vendent des suites de test)Gestion projet
+\end{frame} 
+
+
+\begin{frame}
+TâchesDéfinition des testsImplémentation des jeux de tests Soumission des jeux de tests Dépouillement des résultats Évaluation de la qualité des tests Décision d'arrêter l'écriture de tests Rejeu (maintenance, non régression)
+\end{frame} 
+
+\begin{frame}
+Environnements (outils) de testMise en ½uvre des jeux de testconstruction de données et de contextes d'exécutionDiagnosticdéfinition de critères de réussite / échec automatisable ou non (ex. test d'interface)Synthèse des résultatscar les sorties des tests sont souvent très grosses? ne pas rater une erreur dans une masse de succès Diffusion des résultats
+\end{frame} 
+
+
+
+\begin{frame}
+Types de test (éléments testés et phases)  Tests unitairestest d'une fonction, une classe, un module (pendant le développement) Tests d'intégrationtest de l'assemblage des modules (pendant le développement) 
+Tests de validationchez le fournisseur, par l'équipe de qualification, puis chez le client Tests de suivi d'exploitation
+\end{frame} 
+
+
+\begin{frame}
+Types de test(nature des propriétés testées) Tests fonctionnelsréaction à certaines entrées (sorties produites)Tests de performance vitesse, charge, ...Tests de fiabilité résistance aux pannesTests de sécurité, ...? Tous types et étapes de test pas nécessairement présents : dépend de la criticité du logiciel
+\end{frame} 
+
+
+
+
+
+\begin{frame}
+Types de test(selon les informations accédées)Test boîte noire [black box testing] évaluation de l'extérieur (sans regarder le code), uniquement en fonction des entrées et des sortiessur le logiciel ou un de ses composants Test boîte blanche [white/glass box testing]exploite le code (? besoin du source/de l'architecture) tests de portions de code : bloc, branche, etc.
+
+\end{frame} 
+
+
+
+
+
+\begin{frame}
+Contenu d'un plan de test (1) Définition des cas de testconfiguration matérielle et logicielle pré-conditionsétapes du testcritères de réussite / échec
+
+Chronologie et durée des étapes de testpour chaque étape, chronologie et moyens de mise en ½uvre des différents jeux de testmodes d'intégration
+\end{frame} 
+
+
+\begin{frame}
+Contenu d'un plan de test (2)Équipes concernées et responsabilitésProcédures de suiviévaluation du degré de réalisation des tests procédures de collecte de données statistiquesActions à prendre en cas de découverte d'erreursignalement aux développeurs contrôle après corrections (suivi)
+\end{frame} 
+
+
+\begin{frame}
+Délais et temps de calculPolitique de passage des tests(y compris les tests de non régression)NormesOutils et méthodes recommandés Bibliothèques de tests
+\end{frame} 
+
+
+
+\begin{frame}
+Critères d'arrêt desCritères d'arrêt desdéveloppements de testsdéveloppements de testsTaux de couverture atteint (? critère a priori) suffisamment d'aspects testés Nombre ou taux d'erreurs découvertes(? critère a posteriori)courbe du nb d'erreurs en fonction de la durée arrêt sous un certain seuil (?)séparation des erreurs par catégorieÉpuisement des ressources dédiées au test (?)effort humain et/ou durée
+\end{frame} 
+
+
+
+\begin{frame}
+Taux de découverte de bogues   \centerline{\includegraphics[width=1\textwidth]{taux_test}}  
+\end{frame} 
+
+
+
+\begin{frame}
+Rapport qualité prix?Nombre de cas de test arbitrairement grand ? Nécessité d'un compromisprécision, bon degré de couverture, bonnes informations pour les développeurs-testeurs (reproductibilité, debug)coût (définition, réalisation, passage, dépouillement) temps d'exécution de testsnb de ressources de calcul (machines) mobilisées
+\end{frame} 
+
+\begin{frame}
+Test fonctionnel : Partition en classes d'équivalence (1)Partition du domaine d'entrées (souvent infini) en un nombre fini de classes d'équivalence? limite le nombre de testsDéfinition d'une entrée représentative pourchaque classeidée : chaque représentant d'une classe a une même « probabilité » que les autres de mettre en évidence une erreur Prendre en compte les données invalides comme les données valides : toutes sont des entrées...
+\end{frame} 
+
+
+\begin{frame}
+Test fonctionnel : Partition en classes d'équivalence (2) Ex. fonction qui attend un numéro de département (de métropole) entre 1 et 95 :
+   \centerline{\includegraphics[width=1\textwidth]{test_fonc_1}}  
+Ex. fonction qui attend une réponse oui/non :
+   \centerline{\includegraphics[width=1\textwidth]{test_fonc_2}}  
+\end{frame} 
+
+
+
+
+\begin{frame}
+Test fonctionnel : Partition en classes d'équivalence (3)Découpage en classesdéduit de la spécification (? travail d'interprétation) en fonction d'un degré de finesse donné Quantité de classescompromis précision / coût / temps d'exécution? précision,bondegrédecouverture,bonnesinformations pour les développeurs (debug)? coût(définition,réalisation,passage,dépouillement)
+\end{frame} 
+
+
+\begin{frame}
+Test fonctionnel :  Analyse aux bornes (1)L'expérience prouve que? Les erreurs se situent très souvent à frontières de comportements différentsPar ex. :? indicedetableautoutjustetropgrandoutroppetit? bouclesavecuneitérationentropouenmoins? comparaisonsstricteaulieudeavecégalité,oul'inverse ? etc.
+\end{frame} 
+
+
+
+\begin{frame}
+Test fonctionnel :Analyse aux bornes (2)?Sensibilité à la frontières de comportements? analyse précise aux bornes des classesPlusieurs représentants par classe d'équivalence une valeur « médiane » ordinaire+ une ou plusieurs valeurs aux bornes Aussi appelé « test aux limites »
+\end{frame} 
+
+
+\begin{frame}
+Test fonctionnel :Analyse aux bornes (3)
+
+Ex. fonction qui attend un numéro de département (de métropole) entre 1 et 95 :
+   \centerline{\includegraphics[width=1\textwidth]{test_fonc_3}}  
+Ex. fonction qui attend une réponse oui/non :
+   \centerline{\includegraphics[width=1\textwidth]{test_fonc_4}}  
+\end{frame} 
+
+
+\begin{frame}
+Test fonctionnel :Combinaison de valeurs d'entréeCombinaison des classes d'équivalencescombinatoire exponentielleprécis mais coûteux et long (parfois trop)Exemplehypothèses pour une fonction f(x,y,z) :? 2classesd'équivalencepourchacundesx,yetz ? représentants respectifs : x1,x2, y1,y2, z1,z2combinaisons de cas à tester : (23 = 8)? (x1,y1,z1), (x1,y1,z2), (x1,y2,z1), (x1,y2,z2), (x2,y1,z1), (x2,y1,z2), (x2,y2,z1), (x2,y2,z2)
+\end{frame} 
+
+
+\begin{frame}
+Test fonctionnel :Combinaisons de valeurs d'entréeExploiter ce que doit faire la fonction regrouper les combinaisons indépendantesEx. si f(x,y,z) = (g(x,y),h(y,z))? pour g(x,y) : (x1,y1), (x1,y2), (x2,y1), (x2,y2)???? pour h(y,z) : (y1,z1), (y1,z2), (y2,z1), (y2,z2)? pour f(x,y,z) : (x1,y1,z1), (x1,y2,z1), (x2,y1,z2), (x2,y2,z2) ? 4 combinaisons au lieu de 8
+\end{frame} 
+
+
+\begin{frame}
+Test fonctionnel :Combinaison de valeurs d'entréeEx. conjonction : « si (x > 0 et y > 0 et z > 0) »2 classes d'équivalence pour x, y, z : ]-?,0] , ]0,+?[ représentants aux limites (variables entières) : 0, 1nombre de combinaisons = 23 = 8? (0,0,0), (0,0,1), (0,1,0), (0,1,1), (1,0,0), (1,0,1), (1,1,0), (1,1,1)Test aux limites sur l'expression « U et V et W » ?? examiner les différents cas de triplets de booléens
+
+\end{frame} 
+
+
+\end{document}
+
