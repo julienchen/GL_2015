@@ -1,0 +1,623 @@
+%---------------------------------------------------------------------------------
+%     Configuration
+%---------------------------------------------------------------------------------
+\documentclass[hyperref={pdfpagelabels=false}]{beamer}
+\usepackage{lmodern}
+\usepackage{wrapfig}
+%\usepackage{enumitem} 
+\usetheme{CambridgeUS}
+\newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
+
+%---------------------------------------------------------------------------------
+%     1er Page
+%---------------------------------------------------------------------------------
+\title{Génie logiciel}  
+%\author{Jun Chen}\institute{Université Normale de Shanghai, Département d'informatique}
+%\date{Le 30 Novembre, 2015} 
+\begin{document}
+%\logo{\includegraphics[scale=0.14]{shsf.png}}
+\begin{frame}
+\titlepage
+\end{frame} 
+
+%---------------------------------------------------------------------------------
+%     Sommaire
+%---------------------------------------------------------------------------------
+\begin{frame}
+\frametitle{Sommmaire}
+\tableofcontents
+\end{frame} 
+
+
+%---------------------------------------------------------------------------------
+%   1  EXPRESSION DES BESOINS
+%---------------------------------------------------------------------------------
+\section{Expression des besoins} 
+\begin{frame}
+\frametitle{} 
+ Analyse et définition des besoins du système ? étude des besoins et de la faisabilité
+\begin{itemize}
+\item Etude des besoins et de la faisabilité
+\begin{itemize}
+\item  définitions des fonctionnalités\item  recensement des données
+\end{itemize}
+\item  Pas de solution technique à ce niveau
+\end{itemize}
+Les éléments de cette étape:
+\begin{itemize}
+\item Document: cahier des charges\item  Modèle conceptuel\item  Définition des besoins fonctionnels\item Recensement des données\item Définition des besoins non fonctionnels ? Solution\item Validation
+\end{itemize}
+\end{frame}
+
+
+ 
+ \begin{frame}
+\frametitle{Norme IEEE std 830 : cahier des charges} 
+
+ \begin{enumerate}
+ \item Introduction \item Contexte de la réalisation
+ 
+ \begin{enumerate}\item Objectifs 
+ \item Hypothèses 
+ \item Bases méthodologiques 
+ \end{enumerate}
+ 
+ \item  Description générale
+ 
+  \begin{enumerate} \item  Environnement du projet \item  Fonctions générales du système 
+ \item   Caractéristiques des utilisateurs 
+ \item   Configuration du système \item   Contraintes générales du développement, d'exploitation et de maintenance
+   \begin{itemize}
+	 \item Contraintes de développement 	\item Contraintes d'exploitation	 \item Maintenance et évolution du système
+  \end{itemize}
+  \end{enumerate}
+  
+ \end{enumerate}
+ \end{frame}
+ 
+ 
+\begin{frame}
+\frametitle{Norme IEEE std 830 : cahier des charges} 
+
+\begin{enumerate}
+\setcounter{enumi}{3}
+   \item Description des interfaces externes du logiciel 
+   \begin{enumerate}
+  \item Interface matériel / logiciel   \item  interface homme / machine   \item  Interface logiciel / logiciel
+   \end{enumerate}
+    \item  Description des objets
+  \begin{enumerate}      \item Définition des objets
+       \begin{itemize}         \item Identification de l'objet 
+         \item  Contraintes sur l'objet i
+       \end{itemize}
+    \end{enumerate}
+    
+     \item  Description des fonctions 
+    \begin{enumerate}  
+      \item  Définitions des fonctions 
+    
+        \begin{itemize}
+          \item Identification de la fonction i       	 \item Description de la fonction i        	 \item Contraintes opérationnelles sur la fonction i
+        \end{itemize}
+
+  \end{enumerate}
+ \end{enumerate}
+ \end{frame}       
+        
+        
+        
+        
+\begin{frame}
+\frametitle{Norme IEEE std 830 : cahier des charges} 
+\begin{enumerate}      
+\setcounter{enumi}{6}
+   \item  Conditions particulières de fonctionnement 
+     
+         \begin{enumerate}
+         \item Performances        \item  Capacités        \item  Modes de fonctionnement        \item  Contrôlabilité        \item  Sûreté        \item Intégrité
+        \item Conformité aux standards 
+       \item Facteurs de qualité 
+        \end{enumerate}
+ \item  Justification des choix effectués   
+  \item   Glossaires \item  Références
+         \begin{enumerate}        \item  Annexes 
+         \item Index
+         \end{enumerate}
+  \end{enumerate}
+ \end{frame}            
+         
+         
+         
+ \begin{frame}
+\frametitle{ Le modèle conceptuel du système: approche fonctionnelle}         
+\begin{itemize}\item  exemple des automates finis: commande, fonctions et données\item  facilité d'une représentation graphique des fonctions que l'on affine d'étape en étape     
+ \end{itemize}        
+ \centerline{\includegraphics[width=.6\textwidth]{modele_conceptuel_systeme}}
+ \end{frame}          
+
+
+ \begin{frame}
+\frametitle{ Pour chaque fonction}     
+Un modèle conceptuel
+ \centerline{\includegraphics[width=.6\textwidth]{modele_conceptuel}}
+\end{frame}    
+         
+         
+         
+\begin{frame}
+\frametitle{Définitions des besoins fonctionnels}     
+ \begin{itemize}        
+\item   définition des services 
+\item   complétude et cohérence 
+\item   modifications lors des étapes ultérieures
+ \end{itemize}  
+  trois méthodes 
+\begin{itemize}   
+\item  langage naturel 
+\item  langage structuré ou formaté 
+\item  langage de spécification formelle       
+\end{itemize}        
+\end{frame}            
+         
+   
+
+\begin{frame}
+\frametitle{Langage naturel}     
+ \begin{itemize}           
+  \item   très usité (compréhensible par tous) 
+  \item   présentation par paragraphes numérotés
+  \end{itemize}  
+
+\begin{itemize}
+ 
+  \item 2.1  Paie : Cette fonction comporte trois fonctions:
+\begin{itemize} 
+  \item la saisie des éléments de paie par employé
+  \item l'édition des bulletins
+  \item la mise à jour de la comptabilité
+\end{itemize}    
+  
+  \begin{itemize}
+   \item 2.1.1  La saisie:
+   \end{itemize}   
+    Pour chaque employé, un certain nombre de paramètres sont saisis...
+
+\end{itemize}  
+   
+\end{frame}   
+       
+  
+\begin{frame}
+\frametitle{}
+  Contre: 
+\begin{itemize} 
+  \item ambiguïté linguistique 
+  \item manque de concision: schéma fonctionnel 
+  \item difficulté de distinction entre besoins fonctionnels, non fonctionnels et buts 
+  \item difficulté de vérification : complétude et cohérence
+\end{itemize} 
+Pour: 
+\begin{itemize} 
+  \item compréhensible par l'utilisateur et l'analyste 
+  \item facilité de rédaction
+\end{itemize} 
+\end{frame}  
+
+
+
+\begin{frame}
+\frametitle{Exemples:}
+
+3.1 Les écrans de saisie: \\
+Les saisies doivent être contrôlées et la présentation doit respecter les règles de base de l'ergonomie des interfaces
+
+\begin{alertblock}{ Ceci n'est pas un besoin!}
+\end{alertblock}
+
+4.5 La fonction de saisie regroupe plusieurs sous-fonctions:
+La sous-fonction de saisie des éléments de paie qui devra se
+limiter à fournir les éléments de calcul: généraux et
+spécifiques pour chaque employé...
+La sous-fonction de demande d'édition des bulletins de paie...
+\begin{alertblock}{ Mélange de besoins fonctionnels, non fonctionnels et buts}
+\end{alertblock}
+
+\end{frame}  
+
+
+
+\begin{frame}
+\frametitle{Recommandations:}
+\begin{itemize} 
+  \item  faire relire et corriger le document 
+  \item  rédaction séparée par besoin
+  \item  1 paragraphe = 1 idée 
+   \item  polices de caractères différentes 
+
+   \item  utilisation pour la présentation de haut niveau
+   \begin{itemize} 
+  \item facilité d'expression des besoins fonctionnels
+  \item difficulté d'expression des besoins logiciels
+   \end{itemize}  
+\end{itemize}   
+\end{frame}  
+
+
+
+\begin{frame}
+\frametitle{Langage structuré}
+\begin{itemize} 
+  \item  utilisation limitée du langage naturel 
+  \item utilisation de notations graphiques 
+\end{itemize}  
+
+Exemples:
+\begin{itemize} 
+  \item  SADT (Schoman et Ross 1977)  $\rightarrow$  S.Informations
+  \item   RSL (Bell et al. 1977) $\rightarrow$  S. Temps Réél
+  \item   PSL/PSA (Teichrow et Hershey 1977) $\rightarrow$ S. informations
+\end{itemize}  
+\end{frame}  
+
+
+
+\begin{frame}
+\frametitle{SADT}
+\begin{itemize} 
+  \item  Technique d'analyse structurée  \item  Graphique: structure et relations entre entités  \item  Symboles spéciaux faciles de compréhension 
+    \item  Pas de traitement automatique des diagrammes
+\end{itemize} 
+ \centerline{\includegraphics[width=.8\textwidth]{sadt}}
+ \end{frame}       
+         
+         
+         
+\begin{frame}
+\frametitle{RSL}
+\begin{itemize}       \item  Traitement automatique des instructions RSL  \item   Base de données associée: MSAS*  \item  Outils de génération automatique de simulateurs, rapports, vérification  \item   langage simple: 4 primitives
+  \begin{itemize}     \item   éléments $\rightarrow$ noms en français  \item  relations $\rightarrow$ verbes  \item  attributs $\rightarrow$ adjectifs  \item  structures $\rightarrow$ modélisation des flots d'informations
+ \end{itemize}  
+ \end{itemize}  
+ \end{frame}    
+  
+  
+  
+ \begin{frame}
+\frametitle{Langage spécification formelle}
+\begin{itemize}      \item  exemple ADA avec de nouvelles règles 
+  \item  usage des commentaires
+  \end{itemize}   
+  \centerline{\includegraphics[width=.9\textwidth]{ada}} 
+   \end{frame}   
+
+ \begin{frame}
+\frametitle{Organisation des données}
+\begin{itemize}     \item  modèle Entité-Relation (E-R )  \item aspect conceptuel des données  \item les entités, associations, attributs et identifiants
+\begin{itemize}      \item  entité: existe d'elle même  \item  association: existe entre entités  \item  attribut: propriété individuelle d'une entité ou association  \item  identifiant: attribut particulier identifiant l'entité  \item  cardinalité: nb d'association pour une entité (0,1,n)
+  \end{itemize}  
+  \end{itemize}  
+   \end{frame}   
+  
+  
+  
+ \begin{frame}
+\frametitle{Représentation graphique E-R}
+  \centerline{\includegraphics[width=.9\textwidth]{ER}} 
+\end{frame}   
+  
+  
+ \begin{frame}
+\frametitle{Définitions des besoins non fonctionnels }
+\begin{itemize}   
+ \item contraintes sur les fonctions du système \item soumis aux évolutions technologiques \item intéraction entre fonctions: conflits $\rightarrow$ solutions \item langage naturel ou structuré:  matrice de Boehm (Di: définition Di du cas)
+   \end{itemize}  
+    \centerline{\includegraphics[width=.7\textwidth]{Boehm}}  
+   \end{frame}     
+   
+
+\begin{frame}
+\frametitle{Validation des besoins}
+par les utilisateurs et développeurs
+\begin{itemize}     \item cohérence \\   pas de conflit entre les besoins \item complétude:\\ tous les besoins et contraintes \item réalisme:\\ réalisables avec la technologie matériels et logiciels \item validité:\\ des fonctionnalités supple?mentaires si nécessaire
+ \end{itemize}    
+\end{frame}  
+   
+   
+  \begin{frame}
+\frametitle{Outils ou méthodes de validation}
+\begin{itemize}       
+ \item outils d'analyse et recherche d'anomalies \item générateur de simulateurs \item prototypage \item changements des besoins $\Rightarrow$ réécriture du code \item utilisation $\Rightarrow$ erreurs dans définition des besoins 
+    \end{itemize}    
+   \end{frame}    
+   
+   
+  \begin{frame}
+\frametitle{Le prototypage}
+
+\begin{itemize}       \item approche évolutive du développement
+   \begin{itemize}  	 \item  prototype enrichi au fur et à mesure 
+   	 \item  prototype jetable
+   \end{itemize}  \item avantages:
+      \begin{itemize}   \item cas concret de discussion \item détection des fonctions manquantes \item amélioration des fonctions complexes \item démonstration de la faisabilité \item utilisation comme spécification d'un système
+   \end{itemize}    
+   \end{itemize}    
+   \end{frame}       
+ 
+ 
+ 
+\begin{frame}
+\frametitle{ }
+inconvénients du prototypage:
+\begin{itemize}   \item coût de développement \item incite les changements côté utilisateur
+   \end{itemize} à ne pas faire:
+   \begin{itemize}   \item  développement du prototype avec les outils du produit final \item développement avec le même degré de finesse
+      \end{itemize} mais:
+\begin{itemize}   \item  utiliser des outils qui permettent de 
+ \item  mettre l'accent sur l'essentiel
+    \end{itemize} 
+   \end{frame}    
+ 
+ 
+ 
+ \begin{frame}
+\frametitle{Conclusion: expression des besoins }
+\begin{itemize}  \item   Définition des services attendus par l'utilisateur \item   Analyse des fonctions et de leurs contraintes \item   Pas encore de solutions techniques \item   Collaboration de l'utilisateur importante \item   Utilisation de modèles, méthodes ou de techniques: statiques ou dynamiques \item   Validation correcte avant la phase suivante \item   Définir les limites \item   Envisager les évolutions
+    \end{itemize} 
+   \end{frame}   
+ 
+
+
+%---------------------------------------------------------------------------------
+%   2   SPÉCIFICATIONS DU LOGICIEL
+%---------------------------------------------------------------------------------
+\section{Spécification du logiciel}
+
+ \begin{frame}
+\frametitle{Spécification du logiciel}
+Passage:\begin{itemize} 
+ \item De l'expression des besoins à la solution informatique
+ \item Spécifications informatiques 
+\begin{itemize} 
+ \item  des fonctions \item  des données  
+ \item  des interfaces
+ \end{itemize}  
+ \item Phase précédant la conception détaillée
+\end{itemize}   
+
+Document des spécifications 
+\begin{itemize}  \item  destiné aux développeurs
+ \end{itemize}  
+\end{frame}   
+
+
+
+ \begin{frame}
+\frametitle{Méthode d'Analyse Structurée}
+ SA E. YOURDON (1979)
+ \begin{itemize}  \item spécification statique du logiciel 
+  \item analyse descendante:
+  \begin{itemize}  \item affinages successifs des traitements \item description des flots de données des traitements \item ensemble de diagrammes ordonnés et hiérarchisés 
+  \item fonctions élémentaires = primitives fonctionnelles
+ \end{itemize}     \item outils graphiques et textuels
+ \end{itemize}   
+\end{frame}   
+
+
+ \begin{frame}
+ Analyse des données :
+  \begin{itemize}  \item  Diagramme entité-relation
+   \end{itemize}  
+Spécification des traitements : 
+ \begin{itemize} 
+ \item Diagramme de flux de données. 
+ \item  Diagramme de flux du contrôle.
+  \end{itemize}   Spécification du comportement : 
+\begin{itemize} 
+\item Diagramme des transitions d'états
+\end{itemize}  
+    \centerline{\includegraphics[width=.5\textwidth]{Analyse_structure}}  
+\end{frame}   
+
+
+
+ \begin{frame}
+\frametitle{DD (Dictionnaire de données )}
+  \begin{itemize} 
+ \item création simultanée des diagrammes flots données \item contient : sémantique, structure, flots et stockage de chaque donnée \item  opérateurs DD: +, =, max, min,\{\},( ) .....
+\end{itemize}  
+   \centerline{\includegraphics[width=.7\textwidth]{DD_exemple}}  
+\end{frame} 
+
+
+ \begin{frame}
+Dictionnaire des données
+  \begin{itemize}    \item   La description des données utilisées ou produites par le logiciel.
+  \end{itemize}  
+  Diagramme entité-relation (ERD)
+\begin{itemize}   
+\item  la modélisation des données ;\item  la description des relations entre données ;\item  la description des attributs de chaque donnée : document de la description des données.
+\end{itemize}  
+\end{frame}   
+
+
+
+ \begin{frame}
+Diagramme de flux de données (DFD) :
+  \begin{itemize}    \item  La modélisation des fonctions ;   \item  Description des transformations des données par les fonctions ;   \item  Le document contenant la description de ces fonctions s 'intitule "Spécification du processus".
+  \end{itemize}  Diagramme de flux du contrôle (CFD) :
+    \begin{itemize}     \item  La modélisation des effets des événements sur les fonctions du logiciel.
+  \end{itemize}  
+\end{frame}   
+
+ \begin{frame}
+Diagramme des transitions d 'états (STD)
+  \begin{itemize}    \item   La modélisation comportementale ;   \item   Comportements du logiciel face aux événements extérieurs.   \item   Description des transitions du logiciel d 'un état à l 'autre.   \item   Le document comportant les informations sur le contrôle s 'appelle « Spécification du contrôle »
+  \end{itemize}  
+\end{frame} 
+
+
+
+\begin{frame}
+\frametitle{DFD (Data Flow Diagram) }
+   \begin{itemize} 
+     \item L'une des méthodes disponibles pour analyser les systèmes orientées données.    \item Le DFD met l'emphase sur la logique du système étudié.    \item  Les analystes systèmes peuvent représenter graphiquement les mouvement de données à l'intérieur de l'organisation    \item  Le DFD est une représentation populaire dans la représentation et la modélisation des flux de données.
+   \end{itemize}   
+\end{frame} 
+
+
+\begin{frame}
+\frametitle{DFD (Data Flow Diagram) }
+   \begin{itemize} 
+    \item  DFD permet la spécification des fonctions.    \item  DFD utilise deux niveaux de spécifications : 
+      \begin{itemize} 
+   \item Abstrait : les fonctions globales du logiciel   \item Détail : les sous-fonctions du logiciel en détails.
+   \end{itemize}     \item  Ce raffinement est important car réduit la complexité des fonctions.
+  \end{itemize}   
+ % éléments graphiques
+    
+  % le traitement ou process = cercle% le flot de données = trait% l'unité de stockage = 2 traits% l'entité externe ou terminateur = rectangle    
+\end{frame} 
+
+
+\begin{frame}
+\frametitle{Avantage du DFD}
+   \begin{itemize}    \item  Par rapport à une narration des mouvements de données   \item Compréhension des interrelations entre les systèmes et les sous systèmes   \item Documenter ce que système actuel connait   \item Analyser le système proposé
+ \end{itemize}  
+\end{frame} 
+
+\begin{frame}
+\frametitle{DFD vs le cas d'utilisation}
+   \begin{itemize}    \item   Le cas d'utilisation décrit les interactions entre le système et un acteur (généralement)   \item   Le cas d'utilisation n'explique pas d'où viennent les données   \item   Par contre le CU fournit de précieuses informations pour créer le DFD
+ \end{itemize}  
+\end{frame} 
+
+\begin{frame}
+\frametitle{Limite du DFD}
+   \begin{itemize}    \item   Le DFD ne représente pas les décisions ou les évènements dans le temps.   \item   La fonction du DFD est d'illustrer les sources de données, les destinations, les flux, les magasins de données et les transformations faites aux données.
+   \item  Si vous devez modéliser un système qui servira d'entrepôt de données, le DFD ne vous sera pas très utile.   \item   Peu ou pas de processus à documenter 
+   \item  Dans ce cas, un ERD risque d'être plus intéressant.   \item   In contrario, le ERD n'illustre pas les transformations que l'on retrouve normalement dans un processus
+ \end{itemize}  
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Le niveau du contexte}
+   \begin{itemize} 
+   \item   Contient uniquement un processus représentant l'ensemble du système.   \item  On donne à ce processus le numéro zéro. Ne pas confondre avec le niveau 0.   \item  Tous les agents externes sont représentés dans le diagramme de contexte, ainsi que les flots de données majeurs.   \item   Le diagramme de contexte ne contient aucun magasin de données.
+ \end{itemize}  
+\end{frame}
+
+
+\begin{frame}
+\frametitle{Les étapes pour créer le DFD}
+   \begin{itemize}    \item  Créer un DFD est un travail itératif avec des améliorations continues   \item  Les étapes
+       \begin{enumerate}     \item  Créer un diagramme contextuel   \item  Identifier les Cas d'utilisation, là où les utilisateurs utilisent le système   \item  Créer un fragment de DFD pour chaque cas d'utilisation   \item  Créer un diagramme de niveau 0 pour chaque fragment   \item  Décomposer au niveau 1, 2, ...   \item  Revenir à l'étape 1 et réviser si nécessaire   \item  Valider le DFD avec les utilisateurs
+       \end{enumerate}  
+ \end{itemize}  
+\end{frame}
+
+
+
+\begin{frame}
+\frametitle{Exemple DFD abstrait}
+      \centerline{\includegraphics[width=.6\textwidth]{DFD}}  
+        \centerline{\includegraphics[width=.9\textwidth]{exemple_DFD}}   
+\end{frame} 
+
+
+\begin{frame}
+\frametitle{CFD (Control Flow Diagram)}
+   \begin{itemize} 
+    \item Le contrôle des données est nécessaire pour certaines applications.    \item  On crée alors un diagramme du (flux de) contrôle CFD, similaire au DFD.    \item  CFD gère les effets des événements extérieurs sur le logiciel.    \item  Le document CSPEC contient les explications et descriptions du CFD.
+      \end{itemize}   
+\end{frame} 
+
+
+\begin{frame}
+\frametitle{Spécifications de process: PSPEC}
+ description des traitements élémentaires par   \begin{itemize}      \item algorithmes abstraits 
+     \item arbres de décision 
+     \item tables de décision 
+       \item diagrammes 
+         \item équations       \item  fonctions de gestion de bases de données 
+       \item commentaires
+      \end{itemize}   
+\end{frame} 
+
+ 
+ \begin{frame}
+\frametitle{ Exemple CFD abstrait}
+        \centerline{\includegraphics[width=.6\textwidth]{CFD}}   
+        \centerline{\includegraphics[width=.9\textwidth]{exemple_CFD}}   
+\end{frame} 
+   
+   
+   
+\begin{frame}
+\frametitle{STD}
+   \begin{itemize} 
+     \item Modélisation comportementale
+   \begin{itemize}  
+  \item Montrer le comportement global du logiciel  \item  Elle utilise le document CSPEC et le diagramme STD.
+       \end{itemize}   
+     \item STD exprime le comportement en terme d 'états et événements.     \item Un état est un mode d'opération observable.     \item  Un événement est une condition qui change l'état du logiciel.     
+ \end{itemize}    
+\end{frame}  
+   
+   
+\begin{frame}
+\frametitle{STD}   
+ La modélisation comportementale utilise les STD (Diagramme de transitions d'états) se fonde sur la représentation suivante :
+        \centerline{\includegraphics[width=.4\textwidth]{STD}}   
+        \centerline{\includegraphics[width=.7\textwidth]{STD_exemple}}    
+ \end{frame}  
+ 
+ 
+ \begin{frame}
+\frametitle{Spécifications de contrôle: CSPEC}   
+Diagramme État-Transition: STD
+
+  \begin{itemize}       \item  états ou attributs d'état:
+ 
+   \begin{itemize}          \item   rectangle représentant un intervalle de temps pendant lequel l'objet a un comportement déterminé
+    \end{itemize}  
+         \item signaux ou transitions: 
+    
+     \begin{itemize}  
+     \item transitions d'entrée     \item transitions de sortie
+     \end{itemize}  
+     
+     \end{itemize}  
+   \end{frame}  
+   
+   
+    
+ \begin{frame}
+\frametitle{}     
+   \begin{itemize} 
+      \item Relations entre DFD-CFD-STD     \item  PSPEC-CSPEC-STD  
+ \end{itemize}    
+         \centerline{\includegraphics[width=.5\textwidth]{DFD_relation}}  
+\end{frame}     
+   
+   
+ \begin{frame}
+\frametitle{Les étapes de l 'analyse structurée }      
+ \begin{enumerate}        
+  \item  Création des ERD  \item Création des DFD  \item Création des CFD  \item  Création des STD 
+  \item  Documentation
+   \begin{enumerate}      \item  PSPEC  \item CSPEC  \item Dictionnaire de données
+   \end{enumerate}       
+  \end{enumerate}       
+ \end{frame}   
+
+
+
+
+ 
+   
+\end{document}
+
+
+
+
