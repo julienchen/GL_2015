@@ -39,7 +39,7 @@
 
 \begin{frame}
 \frametitle{Qu'est-ce le test?} 
-Test d?un système = processus d?essai des exécutions d?un système selon un certain critère. L?observation de chaque exécution est comparée avec la spécification du système sous test :
+Test d'un système = processus d'essai des exécutions d'un système selon un certain critère. L'observation de chaque exécution est comparée avec la spécification du système sous test :
 \begin{itemize}
  \item si conforme : test passé (ACCEPT) 
  \item sinon : test échoué (FAIL)
@@ -52,17 +52,17 @@ Test d?un système = processus d?essai des exécutions d?un système selon un certa
 
 \begin{frame}
 \frametitle{Propriétés du test} 
-Essai =? non-exhaustivité :
+Essai = non-exhaustivité :
 \begin{itemize}
- \item NON : absence d?erreurs
+ \item NON : absence d'erreurs
  \item NON : fonctionnalité assurée
  \item NON : trouver toutes les erreurs  
- \item  ????OUI : trouver des erreurs d?exécution du système sous certaines conditions.
+ \item OUI : trouver des erreurs d'exécution du système sous certaines conditions.
 \end{itemize}
 Spécification = oracle de conformité. Idéalement, elle doit contenir des informations complètes et correctes pour
 \begin{itemize}
  \item le programmeur = programmer sans erreurs par rapport à la spéc 
- \item le testeur = trouver le plus d?erreurs par rapport à la spéc
+ \item le testeur = trouver le plus d'erreurs par rapport à la spéc
  \end{itemize}
 \end{frame} 
 
@@ -77,7 +77,7 @@ Les plus :
 \begin{itemize}
  \item très simple
  \item toujours faisable
- \item bon rapport performance / co?ut 
+ \item bon rapport performance / coût 
  \item très populaire
 \end{itemize}
 Les moins :
@@ -96,13 +96,13 @@ Les moins :
 Niveaux :
 \begin{itemize}
  \item Test unitaire = test des (petites) parties du code, séparément.
- \item Test d?intégration = test d?un ensemble de parties du code qui coopèrent.
+ \item Test d'intégration = test d'un ensemble de parties du code qui coopèrent.
  \item Test du système = test du système entier, en inspectant sa fonctionnalité.
- \item Test d?acceptation = effectué par le client pour s?assurer de la conformité au besoin.
+ \item Test d'acceptation = effectué par le client pour s'assurer de la conformité au besoin.
 \end{itemize}
 Phases :
 \begin{itemize}
- \item Test de régression = test réalisé pendant la maintenance après un changement, afin de s?assurer que les système continue de fonctionner correctement.
+ \item Test de régression = test réalisé pendant la maintenance après un changement, afin de s'assurer que les système continue de fonctionner correctement.
  \item Test de robustesse = tester des entrées non-prévues. 
  \item Test sous stress = tester en conditions de surcharge.
 \end{itemize}
@@ -111,43 +111,43 @@ Phases :
 
 
 \begin{frame}
-\frametitle{Qu?est ce le test?} 
+\frametitle{Qu'est ce le test?} 
 \begin{itemize}
  \item Cas de test (TC) : une exécution du programme déclenchée par des données de test (DT).
  \item Suite de tests (TS) : un ensemble de DT.
  \item Objectif de test (TO) : comportement de la spéc à tester.
  \item Système sous test (SUT ou IUT) : implémentation du système à tester.
  \end{itemize}
- 
- $SUT (DT) |= TO (spécification)$
-Environnement de test : assure l?interaction (|=) entre le SUT et le testeur.
+ \center{$SUT (DT) \models TO (spécification)$} \\
+ \vspace{12pt}
+Environnement de test : assure l'interaction ($\models$) entre le SUT et le testeur.
 \end{frame} 
 
 
 \begin{frame}
-\frametitle{Problèmes à résoudre?} 
-Non-exhaustivité $\Longrightarrow$
+\frametitle{Problèmes à résoudre'} 
+Non-exhaustivité $\Longrightarrow$\\
 Problème : Comment sélectionner une suite de tests qui me permet de
-détecter le plus d?erreurs ?
-Réponse : Stratégies de test.
-
-Non-exhaustivité $\Longrightarrow$
-Problème : Comment mesurer l?efficacité du test ?
-Réponse : Critères de couverture du code.
-
-Subjectivité et rigueur $\Longrightarrow$
-Problème : Comment formaliser le test ?
+détecter le plus d'erreurs ?\\
+Réponse : Stratégies de test.\\
+ \vspace{12pt}
+Non-exhaustivité $\Longrightarrow$\\
+Problème : Comment mesurer l'efficacité du test ?\\
+Réponse : Critères de couverture du code.\\
+ \vspace{12pt}
+Subjectivité et rigueur $\Longrightarrow$\\
+Problème : Comment formaliser le test ?\\
 Réponse : Modèles formels de spécification ou de description du code.
 \end{frame} 
 
 
 \begin{frame}
-\frametitle{Problèmes à résoudre?} 
+\frametitle{Problèmes à résoudre'} 
 \begin{itemize}
 \item La spécification du système donnée sous la forme de
 \begin{itemize}
  \item une description informelle
- \item un ensemble de scénario d?utilisation 
+ \item un ensemble de scénario d'utilisation 
  \item des diagrammes de séquence
  \item un automate
   \end{itemize}
@@ -159,29 +159,29 @@ Réponse : Modèles formels de spécification ou de description du code.
 
 
 \begin{frame}
-\frametitle{ Test en "Bo??te blanche"} 
+\frametitle{ Test en "Boîte blanche"} 
 \begin{itemize}
- \item Cas de tests générés en partant du code, en inspectant les chemins d?exécution du système.
- \item Comme le nombre de chemins d?exécution peut ?etre infini, on définit des critères de couverture afin d?augmenter la probabilité de trouver des erreurs avec des chemins pas trop longs, en petit nombre.
- \item Critère de couverture = quels sont les chemins d?exécution à tester afin de couvrir le plus de comportement du système.
- \item Approprié pour le test unitaire ou d?intégration, mais il passe mal à l?échelle.
+ \item Cas de tests générés en partant du code, en inspectant les chemins d'exécution du système.
+ \item Comme le nombre de chemins d'exécution peut être infini, on définit des critères de couverture afin d'augmenter la probabilité de trouver des erreurs avec des chemins pas trop longs, en petit nombre.
+ \item Critère de couverture = quels sont les chemins d'exécution à tester afin de couvrir le plus de comportement du système.
+ \item Approprié pour le test unitaire ou d'intégration, mais il passe mal à l'échelle.
   \end{itemize}
 \end{frame} 
 
 
 \begin{frame}
-\frametitle{ ?Méthodes de test en  "Bo??te blanche"} 
+\frametitle{Méthodes de test en  "Boîte blanche"} 
 \begin{itemize}
 
  \item Inspection de code et exécution pas à pas
  \begin{itemize}
-  \item Très utilisé mais lourd, il trouve 30-70\% d?erreurs.
+  \item Très utilisé mais lourd, il trouve 30-70\% d'erreurs.
  \end{itemize}
  
- \item Test structurel statique $?$ analyse statique.
+ \item Test structurel statique $\approx$ analyse statique.
   \item  Test structurel dynamique
   \begin{itemize}
- \item avec couverture du flot de contr?ole 
+ \item avec couverture du flot de contrôle 
   \item  avec couverture du flot des données
     \end{itemize}
  \item Test par mutation = sélection des TC par rapport à leur effet au changement su système.
@@ -192,40 +192,40 @@ Réponse : Modèles formels de spécification ou de description du code.
 
 
 \begin{frame}
-\frametitle{ ?Graphe de flot du programme} 
+\frametitle{ Graphe de flot du programme} 
 Abstraction du code source, un graphe de flot contient 
   \begin{itemize}
-  \item noeuds = blocks d?instructions en séquence, sans saut 
-    \item arcs = sauts dans le flot de contr?ole
+  \item noeuds = blocks d'instructions en séquence, sans saut 
+    \item arcs = sauts dans le flot de contrôle
 \end{itemize}  
     
-??Permet de raisonner sur la couverture du programme selon des critères choisis (flot de contr?ole ou flot de données).
+''Permet de raisonner sur la couverture du programme selon des critères choisis (flot de contrôle ou flot de données).
  
 \end{frame} 
 
 \begin{frame}
-\frametitle{ ?Exemple} 
-  \centerline{\includegraphics[width=.5\textwidth]{test_code}}  
+\frametitle{Exemple} 
+  \centerline{\includegraphics[width=.7\textwidth]{test_code}}  
 \end{frame} 
 
 \begin{frame}
-\frametitle{ ?Couverture du flot de contr?ole 1/2 } 
+\frametitle{ Couverture du flot de contrôle 1/2 } 
   \begin{itemize}
   \item Tous les noeuds : le plus faible.
-Exemple : $DT1 = (10, ?1), DT2 = (0, ?1)$
+Exemple : $DT_{1} = (10, -1), DT_{2} = (0, -1)$
   \item Tous les arcs : test de chaque décision 
-  Exemple : $DT1? = (10, 3), DT2 = (0, ?1)$
+  Exemple : $DT_{1}' = (10, 3), DT_{2} = (0,-1)$
   \item Toutes les conditions : peut ne pas couvrir toutes les décisions 
-  Exemple : $T3 = (?1, 1), DT4 = (1, 0)$
+  Exemple : $DT_{3} = (-1, 1), DT_{4} = (1, 0)$
   \item Toutes les combinaisons de conditions : explosion combinatoire !
-  \item Tous les chemins : le plus fort, impossible à réaliser s?il y a des boucles.
+  \item Tous les chemins : le plus fort, impossible à réaliser s'il y a des boucles.
     \end{itemize}
 \end{frame} 
 
 
 
 \begin{frame}
-\frametitle{ ?Couverture du flot de contrôle 2/2 } 
+\frametitle{Couverture du flot de contrôle 2/2 } 
 Test des boucles : les critères vus ne sont pas suffisants!
   \begin{itemize}
    \item Une seule boucle (simple), tester les exécutions :
@@ -233,14 +233,14 @@ Test des boucles : les critères vus ne sont pas suffisants!
    \item aucune itération
    \item une seule itération
    \item deux itérations
-   \item un nombre typique d?itérations
-   \item n ? 1, n, n + 1 itérations avec n le nombre d?itérations.
+   \item un nombre typique d'itérations
+   \item $n-1, n, n + 1$ itérations avec n le nombre d'itérations.
      \end{itemize}
          \end{itemize}
          
  Exemple : (15, 0), (15, 1), (15, 2), (15, 3), (6, 4), (15, 5) 
       \begin{itemize}   
-     \item Boucles imbriquées : commencer par fixer le nombre d?itérations de la boucle la plus extérieure et tester les boucles intérieures comme boucle simple.
+     \item Boucles imbriquées : commencer par fixer le nombre d'itérations de la boucle la plus extérieure et tester les boucles intérieures comme boucle simple.
    \item Boucles en suite : si dépendantes, tester comme imbriquées, sinon tester comme simple.
      \end{itemize}
  \end{frame} 
@@ -249,20 +249,20 @@ Test des boucles : les critères vus ne sont pas suffisants!
 
 
 \begin{frame}
-\frametitle{ ??Couverture du flot de données } 
-Pour chaque définition (def ) de variable (affectation), trouver un chemin vers son utilisation dans un calcul (c ? use) ou dans un prédicat
-(p ? use).
+\frametitle{ Couverture du flot de données } 
+Pour chaque définition (def ) de variable (affectation), trouver un chemin vers son utilisation dans un calcul (c ' use) ou dans un prédicat
+(p ' use).
 
-Une paire définition?utilisation s?appelle paire DU (P ou C).
+Une paire définition'utilisation s'appelle paire DU (P ou C).
 
 Critères :
   \begin{itemize}
-     \item all ? defs : couvrir toutes les définitions.
-     \item all ? uses : couvrir au moins un chemin pour chaque paire DU avec variantes all ? c ? uses ou all ? p ? uses
-     \item all ? du ? uses : couvrir tous les chemins d?une paire DU.
+     \item $all - defs$ : couvrir toutes les définitions.
+     \item $all - uses$: couvrir au moins un chemin pour chaque paire DU avec variantes $all-c-uses$ ou $all -p-uses$
+     \item $all - du -uses$ : couvrir tous les chemins d'une paire DU.
      \end{itemize}
     
-    Exemple : fonction maxsum
+    Exemple : fonction $maxsum$
  \end{frame} 
 
 
@@ -271,8 +271,8 @@ Critères :
 \begin{frame}
 \frametitle{Test en "boîte noire"} 
   \begin{itemize}
-     \item Suppose que la structure interne du système n?est pas connue.
-     \item Basé sur la spécification de l?interface du système et de ses fonctionnalités, il s?assure de leur respect par l?implémentation du système.
+     \item Suppose que la structure interne du système n'est pas connue.
+     \item Basé sur la spécification de l'interface du système et de ses fonctionnalités, il s'assure de leur respect par l'implémentation du système.
      \item Approprié pour le test du système mais également pour le test unitaire indépendant.
      \item Méthodes de test :
        \begin{itemize}
@@ -288,14 +288,14 @@ Critères :
 
 \begin{frame}
 \frametitle{Partition des entrées} 
-Idée : diviser le domaine des entrées en un nombre fini de classes tel que le programme réagit pareil pour toutes les valeurs de la classe, donc il faut tester qu?une valeur par classe !
+Idée : diviser le domaine des entrées en un nombre fini de classes tel que le programme réagit pareil pour toutes les valeurs de la classe, donc il faut tester qu'une valeur par classe !
 
 Stratégie de test :
 \begin{enumerate}    
-   \item   Identifier les classes d?équivalence des entrées :
+   \item   Identifier les classes d'équivalence des entrées :
      \begin{itemize}
 \item Sur la base des conditions sur les entrées/sortes.
-\item  En prenant des classes d?entrées valides et invalides.
+\item  En prenant des classes d'entrées valides et invalides.
         \end{itemize}
    \item   Définir un ou quelques TC pour chaque classe.
 \end{enumerate}  
@@ -305,28 +305,28 @@ Stratégie de test :
 
 \begin{frame}
 \frametitle{Exemple : Valeur absolue} 
-Tester une fonction qui calcule la valeur absolue d?un entier.
-  \centerline{\includegraphics[width=1\textwidth]{test_valeur_absolue}}  
+Tester une fonction qui calcule la valeur absolue d'un entier.
+  \centerline{\includegraphics[width=.7\textwidth]{test_valeur_absolue}}  
 Données de test :
--10, 100, ?XYZ?, rien, 10 20
+$-10, 100, 'XYZ', rien, 10 20$
  \end{frame} 
 
 
 \begin{frame}
-\frametitle{?Exemple : Calcul somme max} 
-Tester une fonction qui calcule la somme des premiers valueentiers tant que cette somme reste plus petite que maxint. Sinon, une erreur est affichée. Si value est négatif, la valeur absolue est considérée.
+\frametitle{Exemple : Calcul somme max} 
+Tester une fonction qui calcule la somme des premiers value entiers tant que cette somme reste plus petite que maxint. Sinon, une erreur est affichée. Si value est négatif, la valeur absolue est considérée.
   \centerline{\includegraphics[width=1\textwidth]{test_somme_max}}  
  \end{frame} 
  
  
  
  \begin{frame}
-\frametitle{?Analyse  des valeurs limite}
+\frametitle{Analyse  des valeurs limite}
  
- Idée : les erreurs se nichent dans les cas limite, donc tester les valeurs aux limites des domaines ou des classes d?équivalence.
+ Idée : les erreurs se nichent dans les cas limite, donc tester les valeurs aux limites des domaines ou des classes d'équivalence.
 Stratégie de test :
         \begin{itemize}
-   \item Tester les bornes des classes d?équivalence.
+   \item Tester les bornes des classes d'équivalence.
    \item Tester les bornes du domaine des entrées.
    \item  Tester les entrées qui produisent les valeurs aux bornes pour les sorties.
         \end{itemize} 
@@ -336,7 +336,7 @@ Stratégie de test :
  
  
   \begin{frame}
-\frametitle{? Comment combiner les stratégies ?}
+\frametitle{Comment combiner les stratégies?}
  Recettes :
    \begin{itemize}
    \item Jamais commencer par le test en BB !
@@ -354,7 +354,7 @@ Outils :
 \begin{itemize}
   \item Générateur de test : aléatoire ou guidé par des critères (voir la suite).
   \item Analyseur de couverture : calcule le pourcentage de code couvert durant le test.
-  \item Record \& playback (Exécutif de test) : enregistre les actions de l?utilisateur pour pouvoir les rejouer à la demande ; utile pour le test des IHM et le test de régression.
+  \item Record \& playback (Exécutif de test) : enregistre les actions de l'utilisateur pour pouvoir les rejouer à la demande ; utile pour le test des IHM et le test de régression.
   \item Gestionnaire de test : maintient des suites de test, leurs résultat et produit des rapports.
 \end{itemize} 
 Exemples: TGV, XUnit, gcov, Coverlipse, etc.

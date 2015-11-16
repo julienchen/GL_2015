@@ -7,6 +7,7 @@
 \documentclass[hyperref={pdfpagelabels=false}]{beamer}
 \usepackage{lmodern}
 \usepackage{wrapfig}
+\usepackage{multicol}  
 %\usepackage{enumitem} 
 \usetheme{CambridgeUS}
 \newcommand{\tabincell}[2]{\begin{tabular}{@{}#1@{}}#2\end{tabular}}
@@ -41,7 +42,7 @@
  \begin{itemize} 
      \item aspects surtout fonctionnels
   \end{itemize} \item Un des moyens de l'assurance qualité
-   \begin{itemize}    \item le plus utilisé, aussi « vieux » que le développement
+   \begin{itemize}    \item le plus utilisé, aussi  "vieux" que le développement
    \end{itemize} \item Méthode dynamique (en exécutant le logiciel)   \begin{itemize}
     \item vient après les méthodes statiques (analyses auto.) 
      \item dernier rempart contre les erreurs résiduelles 
@@ -53,128 +54,244 @@
 
 
 \begin{frame}
-\frametitle{Aspects psychologiques (1)} Importance de l'intentionles tests sont élaborés en fonction de l'intentionvouloir démontrer que le programme marche = mauvaise approche car les tests sont choisis en conséquence (ne trouvent rien de neuf)Activité de testprocessus « destructif »objectif : mettre en évidence des erreurssi on n'y aboutit pas, c'est un échec (!) (!)
+\frametitle{Aspects psychologiques (1)} Importance de l'intention
+\begin{itemize} \item Les tests sont élaborés en fonction de l'intention \item  Vouloir démontrer que le programme marche = mauvaise approche car les tests sont choisis en conséquence (ne trouvent rien de neuf)
+\end{itemize}Activité de test
+\begin{itemize} \item processus "destructif " \item objectif : mettre en évidence des erreurs \item si on n'y aboutit pas, c'est un échec
+\end{itemize}
 \end{frame} 
 
 
 
 \begin{frame}
-\frametitle{Aspects psychologiques (2)} ?Plus facile de trouver les erreurs des autres que les sienneson ne détruit pas bien ce qu'on a construit soi-même à force de regarder, on ne voit plus rienregard neuf : nouvelle interprétation des spécifications Séparation des tâcheséquipes de développement ? équipes d'intégration et de qualificationbudget de qualification et de développement séparés
+\frametitle{Aspects psychologiques (2)} 
+Plus facile de trouver les erreurs des autres que les siennes
+\begin{itemize} \item on ne détruit pas bien ce qu'on a construit soi-même 
+ \item à force de regarder, on ne voit plus rien \item regard neuf : nouvelle interprétation des spécifications
+\end{itemize} Séparation des tâches
+\begin{itemize} \item équipes de développement $\neq$ équipes d'intégration et de qualification \item budget de qualification et de développement séparés
+\end{itemize}
 \end{frame} 
 
 
 \begin{frame}
-TestabilitéFacilité avec laquelle des tests peuvent être développés à partir des documents de conceptionfaisabilitécoûtcritères de décision de succès ou d'échec d'un test couvertureSe prépare tout au long du cycle de viespécifications, conception globale et détaillée (compréhensibles, précises, pertinentes, quantifiées...)
+\frametitle{Testabilité} Facilité avec laquelle des tests peuvent être développés à partir des documents de conception
+\begin{itemize} \item faisabilité \item coût \item critères de décision de succès ou d'échec d'un test 
+ \item couverture
+ \end{itemize}Se prépare tout au long du cycle de vie
+ \begin{itemize} \item spécifications, conception globale et détaillée (compréhensibles, précises, pertinentes, quantifiées...)
+  \end{itemize}
 \end{frame} 
 
 
 
 
 \begin{frame}
-Facteurs de testabilitéFacteurs de bonne testabilitéprécision, complétude, traçabilité des documents architecture simple et modulaireabstractions à travers des interfacespolitique claire des traitements d'erreurFacteurs de mauvaise testabilitéforte contraintes d'espace mémoire et d'efficacité intégration forte des traitementslongues chaînes de traitements
+\frametitle{Facteurs de testabilité} Facteurs de bonne testabilité
+\begin{itemize} \item précision, complétude, traçabilité des documents 
+ \item architecture simple et modulaire \item abstractions à travers des interfaces \item politique claire des traitements d'erreur
+  \end{itemize}Facteurs de mauvaise testabilité
+  \begin{itemize} \item forte contraintes d'espace mémoire et d'efficacité 
+   \item intégration forte des traitements \item longues chaînes de traitements
+  \end{itemize}
 \end{frame} 
 
 
 
 \begin{frame}
-Limites théoriques (1)
+\frametitle{Limites théoriques (1)} 
 Notion d'indécidabilité
-propriété indécidable = qu'on ne pourra jamais prouver dans le cas général (pas de procédé systématique)
-Exemples de propriétés indécidablesl'exécution d'un programme terminedeux programmes calculent la même choseun programme n'a pas d'erreurun paramètre du programme fait passer l'exécution ? suruneinstruction,unebranche,unchemindonné? surtouteslesinstruction,branchesouchemins
+\begin{itemize} \item propriété indécidable = qu'on ne pourra jamais prouver dans le cas général (pas de procédé systématique)
+  \end{itemize}Exemples de propriétés indécidables
+  \begin{itemize} \item l'exécution d'un programme termine \item deux programmes calculent la même chose \item un programme n'a pas d'erreur \item un paramètre du programme fait passer l'exécution 
+  \begin{itemize}
+   \item sur une instruction,une branche,un chemin donné   \item  sur toutes les instruction,branches ou chemins
+   \end{itemize}
+   \end{itemize}
 \end{frame} 
 
 
 
-\begin{frame}Limites théoriques (2)?Une bataille perdue d'avance :un programme a un nombre infini (ou gigantesque) d'exécutions possiblesun jeu de tests n'examine qu'un nombre fini (petit) d'exécutions possiblesTrouver des heuristiques :approcher l'infini (ou le gigantesque) avec le fini (petit) tester les exécutions les plus « représentatives »
-\end{frame} 
-
-
-
-\begin{frame}
-Terminologie : alpha- et bêta-testTerminologie : alpha- et bêta-test?Alpha-test (alpha testing)test effectué en phase de développement, avant ladistribution du produit ( alpha-versions du produit) Bêta-test (beta testing)test effectué après l'alpha-test, en distribuant le produit (? des bêta-versions) à un groupe limitéd'utilisateurs avertis  dans la suite de ce cours : uniquement -test
-\end{frame} 
-
-
-
-
-\begin{frame}planification suffisamment tôt (difficile d'accroître les ressources en fin de développement)Organisation de l'activité de testOrganisation de l'activité de testActivité coûteuse ? optimiser l'investissementeffort minimum / probabilité max. de détection d'erreur incrémentalitéConstruction des testsaussi organisée que celle d'un produit (!)( il y a des sociétés qui vendent des suites de test)Gestion projet
-\end{frame} 
-
-
-\begin{frame}
-TâchesDéfinition des testsImplémentation des jeux de tests Soumission des jeux de tests Dépouillement des résultats Évaluation de la qualité des tests Décision d'arrêter l'écriture de tests Rejeu (maintenance, non régression)
-\end{frame} 
-
-\begin{frame}
-Environnements (outils) de testMise en ½uvre des jeux de testconstruction de données et de contextes d'exécutionDiagnosticdéfinition de critères de réussite / échec automatisable ou non (ex. test d'interface)Synthèse des résultatscar les sorties des tests sont souvent très grosses? ne pas rater une erreur dans une masse de succès Diffusion des résultats
+\begin{frame}\frametitle{Limites théoriques (2)} 
+Une bataille perdue d'avance :
+  \begin{itemize} \item un programme a un nombre infini (ou gigantesque) d'exécutions possibles \item un jeu de tests n'examine qu'un nombre fini (petit) d'exécutions possibles
+ \end{itemize}Trouver des heuristiques :
+  \begin{itemize} \item  approcher l'infini (ou le gigantesque) avec le fini (petit) \item  tester les exécutions les plus "représentatives"
+    \end{itemize}
 \end{frame} 
 
 
 
 \begin{frame}
-Types de test (éléments testés et phases)  Tests unitairestest d'une fonction, une classe, un module (pendant le développement) Tests d'intégrationtest de l'assemblage des modules (pendant le développement) 
-Tests de validationchez le fournisseur, par l'équipe de qualification, puis chez le client Tests de suivi d'exploitation
-\end{frame} 
-
-
-\begin{frame}
-Types de test(nature des propriétés testées) Tests fonctionnelsréaction à certaines entrées (sorties produites)Tests de performance vitesse, charge, ...Tests de fiabilité résistance aux pannesTests de sécurité, ...? Tous types et étapes de test pas nécessairement présents : dépend de la criticité du logiciel
-\end{frame} 
-
-
-
-
-
-\begin{frame}
-Types de test(selon les informations accédées)Test boîte noire [black box testing] évaluation de l'extérieur (sans regarder le code), uniquement en fonction des entrées et des sortiessur le logiciel ou un de ses composants Test boîte blanche [white/glass box testing]exploite le code (? besoin du source/de l'architecture) tests de portions de code : bloc, branche, etc.
-
+\frametitle{Terminologie : alpha- et bêta-test} 
+Alpha-test (alpha testing)
+  \begin{itemize} \item test effectué en phase de développement, avant la distribution du produit ( alpha-versions du produit) 
+     \end{itemize} 
+  Bêta-test (beta testing)
+    \begin{itemize} \item test effectué après l'alpha-test, en distribuant le produit (des bêta-versions) à un groupe limitéd'utilisateurs avertis
+      \end{itemize} 
+        dans la suite de ce cours : uniquement -test
 \end{frame} 
 
 
 
 
-
-\begin{frame}
-Contenu d'un plan de test (1) Définition des cas de testconfiguration matérielle et logicielle pré-conditionsétapes du testcritères de réussite / échec
-
-Chronologie et durée des étapes de testpour chaque étape, chronologie et moyens de mise en ½uvre des différents jeux de testmodes d'intégration
+\begin{frame}
+\frametitle{Organisation de l'activité de test} Activité coûteuse $\rightarrow$ optimiser l'investissement
+  \begin{itemize} \item effort minimum / probabilité max. de détection d'erreur 
+   \item incrémentalité
+ \end{itemize} Construction des tests
+   \begin{itemize}   \item aussi organisée que celle d'un produit ( il y a des sociétés qui vendent des suites de test)
+    \end{itemize} Gestion projet
+       \begin{itemize}
+   \item planification suffisamment tôt (difficile d'accroître les ressources en fin de développement)
+    \end{itemize} 
 \end{frame} 
 
 
 \begin{frame}
-Contenu d'un plan de test (2)Équipes concernées et responsabilitésProcédures de suiviévaluation du degré de réalisation des tests procédures de collecte de données statistiquesActions à prendre en cas de découverte d'erreursignalement aux développeurs contrôle après corrections (suivi)
-\end{frame} 
-
-
-\begin{frame}
-Délais et temps de calculPolitique de passage des tests(y compris les tests de non régression)NormesOutils et méthodes recommandés Bibliothèques de tests
-\end{frame} 
-
-
-
-\begin{frame}
-Critères d'arrêt desCritères d'arrêt desdéveloppements de testsdéveloppements de testsTaux de couverture atteint (? critère a priori) suffisamment d'aspects testés Nombre ou taux d'erreurs découvertes(? critère a posteriori)courbe du nb d'erreurs en fonction de la durée arrêt sous un certain seuil (?)séparation des erreurs par catégorieÉpuisement des ressources dédiées au test (?)effort humain et/ou durée
-\end{frame} 
-
-
-
-\begin{frame}
-Taux de découverte de bogues   \centerline{\includegraphics[width=1\textwidth]{taux_test}}  
+\frametitle{Tâches} 
+ \begin{itemize}   \item Définition des tests   \item Implémentation des jeux de tests 
+    \item Soumission des jeux de tests 
+       \item Dépouillement des résultats 
+          \item Évaluation de la qualité des tests 
+             \item Décision d'arrêter l'écriture de tests 
+                \item Rejeu (maintenance, non régression)
+\end{itemize} 
 \end{frame} 
 
 
 
 \begin{frame}
-Rapport qualité prix?Nombre de cas de test arbitrairement grand ? Nécessité d'un compromisprécision, bon degré de couverture, bonnes informations pour les développeurs-testeurs (reproductibilité, debug)coût (définition, réalisation, passage, dépouillement) temps d'exécution de testsnb de ressources de calcul (machines) mobilisées
+\frametitle{Environnements (outils) de test} 
+Mise en oeuvre des jeux de test
+ \begin{itemize}   \item construction de données et de contextes d'exécution
+\end{itemize} Diagnostic
+ \begin{itemize}   \item définition de critères de réussite / échec 
+    \item automatisable ou non (ex. test d'interface)
+  \end{itemize} Synthèse des résultats
+  \begin{itemize}   \item car les sorties des tests sont souvent très grosses   \item $\rightarrow$ ne pas rater une erreur dans une masse de succès 
+    \end{itemize} 
+  Diffusion des résultats
+\end{frame} 
+
+
+
+\begin{frame}
+\frametitle{Types de test(éléments testés et phases)}  Tests unitaires
+ \begin{itemize}   \item test d'une fonction, une classe, un module (pendant le développement)
+\end{itemize}  Tests d'intégration \begin{itemize}
+   \item test de l'assemblage des modules (pendant le développement)\end{itemize}  
+Tests de validation
+ \begin{itemize}   \item t chez le fournisseur, par l'équipe de qualification, puis chez le client\end{itemize}   Tests de suivi d'exploitation
+\end{frame} 
+
+
+\begin{frame}
+\frametitle{Types de test (nature des propriétés testées)} Tests fonctionnels
+ \begin{itemize}   \item réaction à certaines entrées (sorties produites)
+ \end{itemize}   Tests de performance 
+  \begin{itemize}
+   \item   vitesse, charge, ...
+  \end{itemize}    Tests de fiabilité 
+    \begin{itemize}
+   \item    résistance aux pannes
+   \end{itemize}    Tests de sécurité, ... \\
+Tous types et étapes de test pas nécessairement présents : dépend de la criticité du logiciel
+\end{frame} 
+
+
+
+
+
+\begin{frame}
+\frametitle{Types de test (selon les informations accédées)} 
+ Test boîte noire [black box testing]  \begin{itemize}   \item révaluation de l'extérieur (sans regarder le code), uniquement en fonction des entrées et des sorties   \item rsur le logiciel ou un de ses composants    \end{itemize} 
+ Test boîte blanche [white/glass box testing]
+   \begin{itemize}     \item exploite le code ($\rightarrow$ besoin du source/de l'architecture) 
+      \item tests de portions de code : bloc, branche, etc.
+    \end{itemize} 
+\end{frame} 
+
+
+
+
+
+\begin{frame}
+\frametitle{Contenu d'un plan de test (1)}  Définition des cas de test
+   \begin{itemize}     \item  configuration matérielle et logicielle 
+       \item pré-conditions     \item étapes du test     \item critères de réussite / échec
+    \end{itemize} 
+    
+Chronologie et durée des étapes de test
+   \begin{itemize}       \item  pour chaque étape, chronologie et moyens de mise en ½uvre des différents jeux de test       \item modes d'intégration
+       \end{itemize} 
+\end{frame} 
+
+
+\begin{frame}
+\frametitle{Contenu d'un plan de test (2)} Équipes concernées et responsabilitésProcédures de suivi
+   \begin{itemize}  \item évaluation du degré de réalisation des tests 
+     \item procédures de collecte de données statistiques
+\end{itemize} Actions à prendre en cas de découverte d'erreur
+   \begin{itemize} \item  signalement aux développeurs 
+   \item contrôle après corrections (suivi)
+ \end{itemize} 
+\end{frame} 
+
+
+\begin{frame}
+\frametitle{Contenu d'un plan de test (3)} 
+   \begin{itemize}
+ \item  Délais et temps de calcul \item  Politique de passage des tests(y compris les tests de non régression) \item  Normes \item  Outils et méthodes recommandés 
+  \item  Bibliothèques de tests
+  \end{itemize} 
+\end{frame} 
+
+
+
+\begin{frame}
+\frametitle{Critères d'arrêt des développements de tests} Taux de couverture atteint ($\rightarrow$ critère a priori) 
+   \begin{itemize}
+ \item  suffisamment d'aspects testés   \end{itemize} 
+ Nombre ou taux d'erreurs découvertes  ($\rightarrow$ critère a posteriori)
+    \begin{itemize} \item  courbe du nb d'erreurs en fonction de la durée 
+ \item  arrêt sous un certain seuil ($\rightarrow$) \item  séparation des erreurs par catégorie
+   \end{itemize} Épuisement des ressources dédiées au test 
+\begin{itemize} \item  effort humain et/ou durée
+\end{itemize} 
+\end{frame} 
+
+
+
+\begin{frame}
+\frametitle{Taux de découverte de bogues} 
+   \centerline{\includegraphics[width=.8\textwidth]{taux_test}}  
+\end{frame} 
+
+
+
+\begin{frame}
+\frametitle{Rapport qualité prix}
+Nombre de cas de test arbitrairement grand 
+\begin{itemize}
+ \item  Nécessité d'un compromis
+ \begin{itemize} \item précision, bon degré de couverture, bonnes informations pour les développeurs-testeurs (reproductibilité, debug) \item coût (définition, réalisation, passage, dépouillement) 
+  \item temps d'exécution de tests \item nb de ressources de calcul (machines) mobilisées
+ \end{itemize} 
+ \end{itemize} 
 \end{frame} 
 
 \begin{frame}
-Test fonctionnel : Partition en classes d'équivalence (1)Partition du domaine d'entrées (souvent infini) en un nombre fini de classes d'équivalence? limite le nombre de testsDéfinition d'une entrée représentative pourchaque classeidée : chaque représentant d'une classe a une même « probabilité » que les autres de mettre en évidence une erreur Prendre en compte les données invalides comme les données valides : toutes sont des entrées...
+\frametitle{Test fonctionnel :Partition en classes d'équivalence (1) }Partition du domaine d'entrées (souvent infini) en un nombre fini de classes d'équivalence
+\begin{itemize} \item  limite le nombre de tests
+ \end{itemize} Définition d'une entrée représentative pour chaque classe\begin{itemize}
+ \item  idée : chaque représentant d'une classe a une même "probabilité" que les autres de mettre en évidence une erreur \end{itemize}  Prendre en compte les données invalides comme les données valides : toutes sont des entrées...
 \end{frame} 
 
 
 \begin{frame}
-Test fonctionnel : Partition en classes d'équivalence (2) Ex. fonction qui attend un numéro de département (de métropole) entre 1 et 95 :
+\frametitle{Test fonctionnel :Partition en classes d'équivalence (2) } Ex. fonction qui attend un numéro de département (de métropole) entre 1 et 95 :
    \centerline{\includegraphics[width=1\textwidth]{test_fonc_1}}  
 Ex. fonction qui attend une réponse oui/non :
    \centerline{\includegraphics[width=1\textwidth]{test_fonc_2}}  
@@ -184,23 +301,40 @@ Ex. fonction qui attend une réponse oui/non :
 
 
 \begin{frame}
-Test fonctionnel : Partition en classes d'équivalence (3)Découpage en classesdéduit de la spécification (? travail d'interprétation) en fonction d'un degré de finesse donné Quantité de classescompromis précision / coût / temps d'exécution? précision,bondegrédecouverture,bonnesinformations pour les développeurs (debug)? coût(définition,réalisation,passage,dépouillement)
+\frametitle{Test fonctionnel :Partition en classes d'équivalence (3) }Découpage en classes
+\begin{itemize} \item déduit de la spécification ($\rightarrow$ travail d'interprétation) 
+ \item en fonction d'un degré de finesse donné  \end{itemize}  Quantité de classes
+\begin{itemize}  \item compromis précision / coût / temps d'exécution
+\begin{itemize}  \item  précision,bon degré de couverture,bonnes informations pour les développeurs (debug) \item  coût(définition,réalisation,passage,dépouillement)
+ \end{itemize}  
+  \end{itemize}  
 \end{frame} 
 
 
 \begin{frame}
-Test fonctionnel :  Analyse aux bornes (1)L'expérience prouve que? Les erreurs se situent très souvent à frontières de comportements différentsPar ex. :? indicedetableautoutjustetropgrandoutroppetit? bouclesavecuneitérationentropouenmoins? comparaisonsstricteaulieudeavecégalité,oul'inverse ? etc.
+\frametitle{Test fonctionnel : Analyse aux bornes (1) }
+L'expérience prouve que   Les erreurs se situent très souvent à frontières de comportements différentsPar ex. :
+\begin{itemize}  \item   indice de tableau tout juste trop grand ou trop petit \item  boucles avec une itération en trop ou en moins \item   comparaisons stricte au lieu de avec égalité,ou l'inverse 
+ \item   etc.
+  \end{itemize}  
 \end{frame} 
 
 
 
 \begin{frame}
-Test fonctionnel :Analyse aux bornes (2)?Sensibilité à la frontières de comportements? analyse précise aux bornes des classesPlusieurs représentants par classe d'équivalence une valeur « médiane » ordinaire+ une ou plusieurs valeurs aux bornes Aussi appelé « test aux limites »
+\frametitle{Test fonctionnel : Analyse aux bornes (2) }Sensibilité à la frontières de comportements
+\begin{itemize}  \item   analyse précise aux bornes des classes
+  \end{itemize}  Plusieurs représentants par classe d'équivalence 
+  \begin{itemize} 
+ \item    une valeur  "médiane" ordinaire
+ \item  une ou plusieurs valeurs aux bornes 
+   \end{itemize}  
+ Aussi appelé  "test aux limites"
 \end{frame} 
 
 
 \begin{frame}
-Test fonctionnel :Analyse aux bornes (3)
+\frametitle{Test fonctionnel : Analyse aux bornes (3) }
 
 Ex. fonction qui attend un numéro de département (de métropole) entre 1 et 95 :
    \centerline{\includegraphics[width=1\textwidth]{test_fonc_3}}  
@@ -210,20 +344,319 @@ Ex. fonction qui attend une réponse oui/non :
 
 
 \begin{frame}
-Test fonctionnel :Combinaison de valeurs d'entréeCombinaison des classes d'équivalencescombinatoire exponentielleprécis mais coûteux et long (parfois trop)Exemplehypothèses pour une fonction f(x,y,z) :? 2classesd'équivalencepourchacundesx,yetz ? représentants respectifs : x1,x2, y1,y2, z1,z2combinaisons de cas à tester : (23 = 8)? (x1,y1,z1), (x1,y1,z2), (x1,y2,z1), (x1,y2,z2), (x2,y1,z1), (x2,y1,z2), (x2,y2,z1), (x2,y2,z2)
+\frametitle{Test fonctionnel : Combinaison de valeurs d'entrée}Combinaison des classes d'équivalences
+  \begin{itemize}  \item   combinatoire exponentielle \item   précis mais coûteux et long (parfois trop)   \end{itemize}  Exemple
+  \begin{itemize}    \item   hypothèses pour une fonction f(x,y,z) :
+\begin{itemize}    \item  2 classes d'équivalence pour chacun des x,y et z 
+ \item représentants respectifs : x1,x2, y1,y2, z1,z2
+\end{itemize}    \item   combinaisons de cas à tester : (23 = 8)\\  (x1,y1,z1), (x1,y1,z2), (x1,y2,z1), (x1,y2,z2), \\
+  (x2,y1,z1), (x2,y1,z2), (x2,y2,z1), (x2,y2,z2)
+\end{itemize}   
 \end{frame} 
 
 
 \begin{frame}
-Test fonctionnel :Combinaisons de valeurs d'entréeExploiter ce que doit faire la fonction regrouper les combinaisons indépendantesEx. si f(x,y,z) = (g(x,y),h(y,z))? pour g(x,y) : (x1,y1), (x1,y2), (x2,y1), (x2,y2)???? pour h(y,z) : (y1,z1), (y1,z2), (y2,z1), (y2,z2)? pour f(x,y,z) : (x1,y1,z1), (x1,y2,z1), (x2,y1,z2), (x2,y2,z2) ? 4 combinaisons au lieu de 8
+\frametitle{Test fonctionnel : Combinaison de valeurs d'entrée}Exploiter ce que doit faire la fonction 
+  \begin{itemize}  
+  \item   regrouper les combinaisons indépendantes
+ \end{itemize}   Ex. si f(x,y,z) = (g(x,y),h(y,z))
+   \begin{itemize}    \item pour g(x,y) : (x1,y1), (x1,y2), (x2,y1), (x2,y2)  \item pour h(y,z) : (y1,z1), (y1,z2), (y2,z1), (y2,z2)  \item pour f(x,y,z) : (x1,y1,z1), (x1,y2,z1), (x2,y1,z2), (x2,y2,z2) 
+    \end{itemize}   
+  4 combinaisons au lieu de 8
 \end{frame} 
 
 
 \begin{frame}
-Test fonctionnel :Combinaison de valeurs d'entréeEx. conjonction : « si (x > 0 et y > 0 et z > 0) »2 classes d'équivalence pour x, y, z : ]-?,0] , ]0,+?[ représentants aux limites (variables entières) : 0, 1nombre de combinaisons = 23 = 8? (0,0,0), (0,0,1), (0,1,0), (0,1,1), (1,0,0), (1,0,1), (1,1,0), (1,1,1)Test aux limites sur l'expression « U et V et W » ?? examiner les différents cas de triplets de booléens
-
+\frametitle{Test fonctionnel : Combinaison de valeurs d'entrée}Ex. conjonction : si ($x > 0$ et $y > 0$ et $z > 0$) 
+   \begin{itemize}    \item 2 classes d'équivalence pour x, y, z :  $ ]-\infty,0]$ , $]0,+\infty[ $
+     \item représentants aux limites (variables entières) : 0, 1  \item nombre de combinaisons = 23 = 8\\ (0,0,0), (0,0,1), (0,1,0), (0,1,1), (1,0,0), (1,0,1), (1,1,0), (1,1,1)
+      \end{itemize}   Test aux limites sur l'expression "U et V et W " ?
+\begin{itemize}  
+   \item  examiner les différents cas de triplets de booléens
+\end{itemize}   
 \end{frame} 
 
 
+
+\begin{frame}
+\frametitle{Treillis des triplets de booléens, conjonction et valeurs aux limites}
+    \centerline{\includegraphics[width=.8\textwidth]{Treillis_des_triplets}}  
+\end{frame} 
+
+
+
+\begin{frame}
+\frametitle{Test fonctionnel : Combinaison de valeurs d'entrée}
+Ex. conjonction : si ($x > 0$ et $y > 0$ et $z > 0$) 
+\begin{itemize}     \item classes pour x, y, z :  $]-\infty, 0]$ , $ ]0,+\infty[$  \item représentants aux limites : 0, 1 (soit $2^3$ combinaisons)
+\end{itemize}  Test aux limites sur la condition C = U et V et W\begin{itemize}     \item valeurs limites tq C = vrai  \\
+ (vrai,vrai,vrai)   \item valeurs limites tq C = faux \\ (faux, vrai, vrai), (vrai, faux, vrai), (vrai, vrai, faux)   \item au final : 4 combinaisons pour (x,y,z) au lieu de 8 \\ (1,1,1), (0,1,1), (1,0,1), (1,1,0)
+\end{itemize}  
+\end{frame} 
+
+
+\begin{frame}
+\frametitle{Test fonctionnel : Combinaison de valeurs d'entrée}Ex. disjonction : si ($x > 0$ ou $y > 0$ ou $z > 0$) 
+\begin{itemize}    \item  2 classes d'équivalence pour x, y, z : $]-\infty,0] $, $]0,+\infty[ $
+  \item représentants aux limites (variables entières) : 0, 1  \item nombre de combinaisons = 23 = 8 \\
+   (0,0,0), (0,0,1), (0,1,0), (0,1,1), (1,0,0), (1,0,1), (1,1,0), (1,1,1)
+ \end{itemize}  Test aux limites sur l'expression "U ou V ou W" ?\begin{itemize}   \item  examiner les différents cas de triplets de booléens
+ \end{itemize}  
+\end{frame} 
+
+
+
+\begin{frame}
+\frametitle{Treillis des triplets de booléens et disjonction et valeurs au limites}
+    \centerline{\includegraphics[width=.8\textwidth]{Treillis_des_triplets_2}}  
+\end{frame} 
+
+
+\begin{frame}
+\frametitle{Test fonctionnel : Combinaison de valeurs d'entrée}
+
+Ex. disjonction :   si ($x > 0$ ou $y > 0 $ ou $z > 0$ )
+\begin{itemize}    \item classes pour x, y, z : $]-\infty,0]$ , $]0,+\infty[$  \item représentants aux limites : 0, 1 (soit 23 combinaisons)
+ \end{itemize}  Test aux limites sur la condition C = U ou V ou W\begin{itemize}     \item  valeurs limites tq C = vrai \\  (vrai, faux, faux), (faux, vrai, faux), (faux, faux, vrai)  \item  valeurs limites tq C = faux \\ (faux, faux, faux)  \item  au final : 4 combinaisons pour (x,y,z) au lieu de 8 \\ (1,0,0), (0,1,0), (0,0,1), (0,0,0)
+ \end{itemize}  
+ \end{frame} 
+ 
+
+\begin{frame}
+\frametitle{TTest boîte blanche}
+ ?exploite le code
+ \begin{itemize}  
+   \item nécessite le source \\  graphe de flot de contrôle, graphe de flot de données, ... \item  tests de portions de code (bloc, branche, etc.)éventuellement, marquage des portions de code
+\begin{itemize}     \item testées   \item effectivement parcourues 
+   \item  taux de couverture
+ \end{itemize}  
+ \end{itemize}  
+ \end{frame} 
+ 
+ 
+ \begin{frame}
+\frametitle{Test fonctionnel : Analyse de chemins}
+Basé sur le chemin d'exécution
+ \begin{itemize}     \item boîte noire : d'après l'algorithme de la spécification 
+   \item boîte blanche : d'après le graphe de flot de contrôle
+  \end{itemize}  Couverture
+   \begin{itemize}     \item des branches (ou des instructions) 
+   \item de séquences de branches   \item des chemins   \item  ...
+   \end{itemize}  
+ \end{frame} 
+ 
+ 
+ 
+ 
+ %\begin{wrapfigure}{tr}{0.4\textwidth}
+ % \includegraphics[width=.8\textwidth]{Couverture_1}
+ %\end{wrapfigure}
+
+
+\begin{frame}
+\frametitle{Couverture des branches}
+
+\begin{columns}  
+\column{0.6\textwidth}<1->  
+
+   \begin{itemize}     \item  Toute branche est exécutée au moins une fois
+   \item  Ex. valeurs tq (C1,C2) = 
+    \begin{itemize}  
+        \item   $T_{1}=(vrai, vrai)$, $T_{2}=(faux, faux)$
+        \item  ou $T_{1}=(vrai, faux)$, $T_{2}=(faux, vrai)$
+      \item 2 groupes de tests au choix
+   \end{itemize}  
+      \end{itemize}  
+ 
+ \column{0.4\textwidth}<1-> 
+ \includegraphics[width=.8\textwidth]{Couverture_1}
+ \end{columns}  
+ \end{frame} 
+
+
+\begin{frame}
+\frametitle{Couverture des instructions}
+
+\begin{columns}  
+\column{0.6\textwidth}<1->  
+\begin{itemize}  
+   \item  Toute instruction est exécutée au moins une fois   \item Idem couverture de branche
+   \begin{itemize}        \item   parcourir tous les noeuds 
+     \item    parcourir tous les arcs
+   \end{itemize}  
+    \item  Ex. valeurs tq (C1,C2) = 
+    \begin{itemize}  
+        \item   $T_{1}=(vrai, vrai)$, $T_{2}=(faux, faux)$
+        \item  ou $T_{1}=(vrai, faux)$, $T_{2}=(faux, vrai)$
+      \item 2 groupes de tests au choix
+   \end{itemize}  
+
+ \end{itemize}    
+   
+ \column{0.4\textwidth}<1-> 
+ \includegraphics[width=.8\textwidth]{Couverture_2}
+ \end{columns}  
+ \end{frame} 
+
+
+
+\begin{frame}
+\frametitle{Couverture des chemins (path coverage)}
+
+ \begin{columns}  
+\column{0.6\textwidth}<1->  
+\begin{itemize}  
+   \item  Toute chemin est exécuté au moins une fois
+   \item  Ex. valeurs tq (C1,C2) = 
+    \begin{itemize}  
+        \item   $T_{1}=(vrai, vrai)$, $T_{2}=(vrai, faux)$
+        \item  ou $T_{3}=(faux, vrai)$, $T_{4}=(faux, faux)$
+      \item 1 seul groupe de tests (comportant 4 cas de tests)
+   \end{itemize}  
+
+ \end{itemize}    
+
+ \column{0.4\textwidth}<1-> 
+ \includegraphics[width=.8\textwidth]{Couverture_3}
+ \end{columns}  
+ \end{frame} 
+
+
+\begin{frame}
+\frametitle{Couverture des chemins (path coverage)}
+ \begin{columns}  
+\column{0.6\textwidth}<1->  
+\begin{itemize}  
+   \item Couverture des chemins impossible : nb chemins infini
+    \begin{itemize}  
+     \item  chemins les plus représentatifs 
+       \item   limiter le nombre de boucles
+   \end{itemize}  
+   
+   \item Ex. (limite = 1) : valeurs tq
+       \begin{itemize}  
+        \item   $T_{1}: C_{itération1} = vrai $ 
+        \item   $T_{2} : C_{itération1} = faux$ , $C_{itération2} = vrai$
+        \item  2 cas de tests
+       \end{itemize} 
+       \end{itemize}     
+      \column{0.4\textwidth}<1-> 
+ \includegraphics[width=.8\textwidth]{Couverture_4}
+ \end{columns}  
+ 
+ (pour la couverture de branches, 1 test suffit : $T_{2}$)
+ 
+ \end{frame} 
+ 
+ 
+ 
+ 
+ \begin{frame}
+\frametitle{ Analyse de chemins}
+ Et aussi :    \begin{itemize}  
+    \item     couverture des i-chemins \\  portions linéaires de code suivies d'un saut    \item  couverture des branches essentielles \\  inutile d'ajouter des tests pour les passages obligés    \item  structured path testing \\  réunion de chemins ne différant que par le nb d'itérations    \item  boundary interior path testing \\ pour les chemins ayant au moins une itération: exécuter au moins une fois les chemins différents pour une 1ère itération
+\end{itemize}   
+  \end{frame} 
+ 
+ 
+  \begin{frame}
+\frametitle{  Analyse de flot de données (1)}Toute variable a des
+\begin{itemize}  \item points de définition, c-à-d. affectations ($x = 0$;) \item points d'utilisation dans des conditions logiques ($x > 0$) 
+ \item points d'utilisation dans des instructions de calcul ($x+3$)
+ \end{itemize}  Couverture
+ \begin{itemize}  \item de toutes les définitions \item de toutes les utilisations dans des conditions logiques 
+  \item de toutes les utilisations dans des calculs \item définitions exécutées au moins une fois pour toutes les utilisations qu'elle atteint, ...
+  \end{itemize}  
+  \end{frame}  
+ 
+ 
+ 
+ 
+ 
+\begin{frame}
+\frametitle{  Analyse de flot de données (2)}Ex. définitions exécutées au moins une fois pour toutes les utilisations qu'elle atteint $\rightarrow$ 4 cas
+ \includegraphics[width=.8\textwidth]{Couverture_5}
+\end{frame}  
+
+ 
+\begin{frame}
+\frametitle{ Test intrusif}
+Instrumentation du code\begin{itemize}   \item identification des branches effectivement parcourues (pour le test boîte blanche) \item interrogation possible, en cours de test (c.-à-d. d'exécution), de la valeur de certaines variables \\  fourniture de résultats de calcul intermédiaires \end{itemize}  En général, pas le code final \begin{itemize}  
+ \item   $\sharp$ifdef, ... \item mais risque de différences de comportement
+  \end{itemize}  
+   
+ \end{frame}  
+ 
+ 
+ 
+ \begin{frame}
+\frametitle{ Auto-test (1)}
+ Assertion\begin{itemize}   \item vérification dynamique d'un invariant (propriété qui doit toujours être vraie en un point d'exécution)
+ \end{itemize}   Ex. (dans une implémentation de String) : \\
+\vspace{12pt}
+ 	assert( $len \ge 1 $  ); \\
+ 	lastChar = chars[$len-1$];\\
+	
+\vspace{12pt}si len n'est pas plus grand que 1 au moment de l'exécution, une erreur se produit
+  \end{frame}  
+ 
+ 
+  \begin{frame}
+\frametitle{ Auto-test (2)}
+
+ Suppression des assert dans le produit final 
+ \begin{itemize}  
+  \item   sinon ralentit l'exécution
+  \end{itemize}  Certains langages disposent d'assertions 
+   \begin{itemize}  
+    \item  Eiffel, Java (v1.5) $\rightarrow$ flag du compilateur
+    \end{itemize}  Sinon, implémentable avec des macros
+ \includegraphics[width=.8\textwidth]{auto_test}
+   \end{frame}  
+ 
+    
+    
+    
+    
+\begin{frame}
+\frametitle{  Oracle de test} 
+?Prédire les valeurs de sorties correctes (attendues) 
+ \begin{itemize}  
+  \item  diagnostiquer la réussite ou l'échec
+\end{itemize}  Implémentation
+ \begin{itemize}    \item  cas simples : valeurs codées en dur  \item  cas complexes : valeurs calculées par simulateur/proto \\
+ maintenance plus facile en cas d'évolution de la spécification 
+\end{itemize}  
+Ne pas tester les tests avec l'implémentation
+ \begin{itemize}  
+  \item  ?vote à la majorité de 3 : \\
+ valeur simple,valeur simulée,valeur produite par le programme   
+\end{itemize}      
+   \end{frame}      
+    
+    
+    
+\begin{frame}
+\frametitle{À retenir}
+\begin{enumerate}  
+  \item Test = processus "destructif"
+\begin{itemize}  
+  \item pas d'erreur trouvée (chez un autre) = échec
+\end{itemize}   
+  \item Notion de plan de test
+\begin{itemize}  
+  \item poser le problème du compromis couverture/effort\end{itemize}   
+  \item Tests boîte noire / boîte blanche (code visible)  
+  \item  Tests fonctionnels :
+\begin{itemize}  
+  \item partition des entrées, test aux limites, combinatoire 
+  \item couverture des branches et chemins
+\end{itemize}    \item Instrumentation, auto-test (assertion) et oracle
+\end{enumerate}\end{frame}    
+    
+    
+    
+    
+    
 \end{document}
 
